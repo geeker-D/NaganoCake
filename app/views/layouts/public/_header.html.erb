@@ -1,11 +1,11 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light p-3" style="background-color:#fffacd;" >
     <div class="container">
-      <a class="navbar-brand" href="/"> Nagano Cake </a>
+      <a class="navbar-brand" href="/"><%= image_tag('Nagano_Cake_Logo.png', size: '90x90') %></a>
       <% if customer_signed_in? %>
-        <div class="t">
-          ようこそ、<i class="fas fa-door-open"></i>
-          <u><%= current_customer.last_name %></u>
+        <div class="login_customer_disp_name">
+          <i class="fas fa-door-open"></i>ようこそ、
+          <b><%= current_customer.last_name %></b>
           さん <i class="fas fa-exclamation"></i>
         </div>
       <% end %>
