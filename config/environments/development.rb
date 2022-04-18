@@ -75,5 +75,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << "49a0cd665d014f6f826f28d1fb480416.vfs.cloud9.us-east-1.amazonaws.com"
-
+  config.hosts << "24617ace733e4afe9d5f968920701b94.vfs.cloud9.us-east-1.amazonaws.com"
 end
