@@ -1,32 +1,62 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light p-3" style="background-color:#fffacd;" >
     <div class="container">
-      <a class="navbar-brand" href="/"> Nagano Cake </a>
+      <a class="navbar-brand" href="/"><%= image_tag('Nagano_Cake_Logo.png', size: '90x90') %></a>
+      <% if customer_signed_in? %>
+        <div class="login_customer_disp_name">
+          <i class="fas fa-door-open"></i>ようこそ、
+          <b><%= current_customer.last_name %></b>
+          さん <i class="fas fa-exclamation"></i>
+        </div>
+      <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+        <% if customer_signed_in? %>
           <li>
-            <%= link_to root_path,class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-exclamation-circle"></i> About
+            <%= link_to customers_mypage_path, class: 'nav-link text-dark heaedr-link' do %>
+              <i class="fas fa-user-circle"></i> マイページ
             <% end %>
           </li>
           <li>
-            <%= link_to root_path,class: 'nav-link text-dark heaedr-link' do %>
+            <%= link_to items_path, class: 'nav-link text-dark heaedr-link' do %>
               <i class="fas fa-cheese"></i> 商品一覧
             <% end %>
           </li>
           <li>
-            <%= link_to root_path,class: 'nav-link text-dark heaedr-link' do %>
+            <%= link_to cart_items_path, class: 'nav-link text-dark heaedr-link' do %>
+              <i class="fas fa-shopping-cart"></i> カート
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-dark heaedr-link' do %>
+              <i class="fas fa-sign-in-alt"></i> ログアウト
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to about_path, class: 'nav-link text-dark heaedr-link' do %>
+              <i class="fas fa-exclamation-circle"></i> About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to items_path, class: 'nav-link text-dark heaedr-link' do %>
+              <i class="fas fa-cheese"></i> 商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_registration_path, class: 'nav-link text-dark heaedr-link' do %>
               <i class="fas fa-user-plus"></i> 新規登録
             <% end %>
           </li>
           <li>
-            <%= link_to root_path,class: 'nav-link text-dark heaedr-link' do %>
+            <%= link_to new_customer_session_path, class: 'nav-link text-dark heaedr-link' do %>
               <i class="fas fa-sign-in-alt"></i> ログイン
             <% end %>
           </li>
+        <% end %>
         </ul>
         <ul class="navbar-nav">
           <div class="container h-100">
