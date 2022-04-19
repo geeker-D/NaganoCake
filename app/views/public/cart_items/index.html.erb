@@ -4,11 +4,13 @@
 
       <div class='row'>
         <h6>ショッピングカート</h6>
-        <button>カートを空にする</button>
+        <div>
+          <%=link_to "カートを空にする", destroy_all_cart_items_path, class: 'btn btn-sm btn-outline-danger' %>
+        </div>
       </div>
 
-      <table class='table'>
-        <thead>
+      <table class='table table-hover'>
+        <thead class='thead-light'>
           <tr>
             <th>商品名</th>
             <th>単価(税込)</th>
@@ -21,6 +23,7 @@
           <% @cart_items.each do |cart_item| %>
             <tr>
               <td>
+                <%= image_tag cart_item.item.get_item_image, size: '50x50' %>
                 <%= cart_item.item.name %>
               </td>
               <td>
@@ -33,7 +36,7 @@
                 <%= (cart_item.item.price_non_tax * 1.1).floor * cart_item.amount%>
               </td>
               <td>
-                <button>削除する</button>
+                <%=link_to "削除する", cart_item_path(cart_item.id), method: :delete,  class: 'btn btn-sm btn-outline-danger' %>
               </td>
             </tr>
           <% end %>
@@ -41,26 +44,24 @@
       </table>
       <div class='row'>
         <div class="col-md-9">
-          <button>買い物を続ける</button>
+          <%=link_to "買い物を続ける", root_path,  class: 'btn btn-sm btn-outline-primary' %>
         </div>
         <div class="col-md-3">
           <table class='table'>
             <tbody>
-            <!--% インスタンス変数.each do |cart_item| %>-->
               <tr>
-                <td>合計金額</td>
+                <td><b>合計金額</b></td>
                 <td>
-
+                  <%= number_to_currency(@total_payment_no_shipfee, unit: "¥", format: "%u %n", precision: 0) %>
                 </td>
               </tr>
-            <!--% end %>-->
             </tbody>
           </table>
         </div>
       </div>
       <div class='row'>
         <div class="col-md-12">
-          <button>情報入力に進む</button>
+          <%=link_to "情報入力に進む", new_order_path,  class: 'btn btn-sm btn-outline-success' %>
         </div>
       </div>
     </div>
