@@ -1,5 +1,9 @@
 class Public::CartItemsController < Public::ApplicationController
   def index
+    # binding.pry
+    customer = current_customer
+    @cart_items = customer.cart_items
+
   end
 
   def create

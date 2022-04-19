@@ -1,6 +1,12 @@
 <div class='container'>
   <div class='row'>
     <div class="col-md-10">
+
+      <div class='row'>
+        <h6>ショッピングカート</h6>
+        <button>カートを空にする</button>
+      </div>
+
       <table class='table'>
         <thead>
           <tr>
@@ -12,17 +18,51 @@
           </tr>
         </thead>
         <tbody>
-          <!--% インスタンス変数.each do |cart_item| %>-->
+          <% @cart_items.each do |cart_item| %>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+                <%= cart_item.item.name %>
+              </td>
+              <td>
+                <%= (cart_item.item.price_non_tax * 1.1).floor %>
+              </td>
+              <td>
+                <%= cart_item.amount %>
+              </td>
+              <td>
+                <%= (cart_item.item.price_non_tax * 1.1).floor * cart_item.amount%>
+              </td>
+              <td>
+                <button>削除する</button>
+              </td>
             </tr>
-          <!--% end %>-->
+          <% end %>
         </tbody>
       </table>
+      <div class='row'>
+        <div class="col-md-9">
+          <button>買い物を続ける</button>
+        </div>
+        <div class="col-md-3">
+          <table class='table'>
+            <tbody>
+            <!--% インスタンス変数.each do |cart_item| %>-->
+              <tr>
+                <td>合計金額</td>
+                <td>
+
+                </td>
+              </tr>
+            <!--% end %>-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class='row'>
+        <div class="col-md-12">
+          <button>情報入力に進む</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
