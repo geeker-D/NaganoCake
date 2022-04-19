@@ -1,12 +1,12 @@
 <div class='container'>
-  <div class='row'>
+  <div class='row justify-content-center'>
     <div class="col-md-10">
 
       <div class='row'>
         <h6>ショッピングカート</h6>
         <% if current_customer.cart_items.exists? %>
-        <div>
-          <%=link_to "カートを空にする", destroy_all_cart_items_path,method: :delete, class: 'btn btn-sm btn-outline-danger' %>
+        <div class='col text-right d-inline-block btn_link' >
+          <%=link_to "カートを空にする", destroy_all_cart_items_path,method: :delete, class: 'btn btn-sm btn-danger' %>
         </div>
         <% end %>
       </div>
@@ -28,7 +28,7 @@
                 <%= image_tag cart_item.item.get_item_image, size: '50x50' %>
                 <%= cart_item.item.name %>
               </td>
-              <td>
+              <td class=''>
                 <%= (cart_item.item.price_non_tax * 1.1).floor %>
               </td>
               <td>
@@ -45,7 +45,7 @@
                 <%= (cart_item.item.price_non_tax * 1.1).floor * cart_item.amount%>
               </td>
               <td>
-                <%=link_to "削除する", cart_item_path(cart_item.id), method: :delete,  class: 'btn btn-sm btn-outline-danger' %>
+                <%=link_to "削除する", cart_item_path(cart_item.id), method: :delete,  class: 'btn btn-sm btn-danger' %>
               </td>
             </tr>
           <% end %>
@@ -56,7 +56,7 @@
       <% end %>
       <div class='row'>
         <div class="col-md-9">
-          <%=link_to "買い物を続ける", root_path,  class: 'btn btn-sm btn-outline-primary' %>
+          <%=link_to "買い物を続ける", root_path,  class: 'btn btn-sm btn-primary' %>
         </div>
         <% if current_customer.cart_items.exists? %>
         <div class="col-md-3">
@@ -75,8 +75,8 @@
       <% end %>
       <% if current_customer.cart_items.exists? %>
       <div class='row'>
-        <div class="col-md-12">
-          <%=link_to "情報入力に進む", new_order_path,  class: 'btn btn-sm btn-outline-success' %>
+        <div class="col-md-12 text-center">
+          <%=link_to "情報入力に進む", new_order_path,  class: 'btn btn-success d-grid gap-2 col-4 mx-auto' %>
         </div>
       </div>
       <% end %>
