@@ -83,26 +83,25 @@ p.footertopline{
 }
 
 .news_cart_item {
-  /* ボタンっぽいデザインを入れる */
   width: 90px;
   border-radius: 5px;
-  position: sticky; /* 基準値とする */
+  position: sticky;
 }
 
 .news_count {
-  position: absolute;     /* 相対位置に指定 */
-  top: 0px;             /* 表示位置を上から-10pxの位置にする */
-  left: calc(100% - 15px);/* 表示位置を右から内側に10pxの位置 */
-  color: #FFF;            /* 文字色を白に指定 */
-  font-weight: bold;      /* 太文字にする */
-  line-height: 20px;      /* 行の高さを指定 */
-  text-align: center;     /* 文字を中央揃えにする */
-  background: #ff7f50;    /* 背景色をオレンジに指定 */
-  border-radius: 10px;    /* line-heightの半分の角丸を指定 */
-  min-width: 20px;        /* 最低幅を指定 */
-  padding: 0 3px;         /* 左右に少しだけ余白を設定 */
-  box-sizing: border-box; /* 計算しやすいように */
+  position: absolute;
+  top: 0px;
+  left: calc(100% - 15px);
+  color: #FFF;
+  font-weight: bold;
   font-size: small;
+  line-height: 20px;
+  text-align: center;
+  background: #ff7f50;
+  border-radius: 10px;
+  min-width: 20px;
+  padding: 0 3px;
+  box-sizing: border-box;
 }
 
 // ↑國原記載##############################################
