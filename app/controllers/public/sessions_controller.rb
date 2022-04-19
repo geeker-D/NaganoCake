@@ -2,6 +2,9 @@
 
 class Public::SessionsController < Devise::SessionsController
   layout 'public/application'
+  #退会しているかcreate時(ログイン)のみ確認
+  before_action :confirm_defection, only: [:create]
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -26,4 +29,13 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def confirm_defection
+    customer = Customer.find_by_email(params[:customer][:email])
+    return if !customer
+    if customer.valid_password?(params[:customer][:password]) && customer.is_deleted == true
+      redirect_to new_customer_registration_path
+    end
+  end
+
 end
