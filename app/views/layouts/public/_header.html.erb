@@ -30,9 +30,12 @@
             <% end %>
           </li>
           <li>
-            <%= link_to cart_items_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-shopping-cart"></i> カート
-            <% end %>
+              <%= link_to cart_items_path, class: 'nav-link text-dark heaedr-link news_cart_item' do %>
+                <i class="fas fa-shopping-cart"></i> カート
+                <% if current_customer.cart_items.exists? %>
+                  <span class="news_count"><%= current_customer.cart_items.count %></span>
+                <% end %>
+              <% end %>
           </li>
           <li>
             <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-dark heaedr-link' do %>
