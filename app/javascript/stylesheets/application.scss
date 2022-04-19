@@ -1,6 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+// ↓國原記載##############################################
 .icon{
   margin: 5px;
 }
@@ -67,3 +68,19 @@ p.footertopline{
   color:white;
   text-decoration:none;
 }
+
+.img_wrap_kuni{
+  transition-duration: 0.5s;
+}
+.img_wrap_kuni img{
+  width: 100%;
+  cursor: pointer;
+}
+.img_wrap_kuni:hover{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+}
+
+
+// ↑國原記載##############################################

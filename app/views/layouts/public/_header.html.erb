@@ -1,7 +1,11 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light p-3" style="background-color:#fffacd;" >
     <div class="container">
-      <a class="navbar-brand" href="/"><%= image_tag('Nagano_Cake_Logo.png', size: '90x90') %></a>
+      <a class="navbar-brand" href="/">
+        <div class= 'img_wrap_kuni'>
+          <%= image_tag('Nagano_Cake_Logo.png', size: '90x90') %>
+        </div>
+      </a>
       <% if customer_signed_in? %>
         <div class="login_customer_disp_name">
           <i class="fas fa-door-open"></i>ようこそ、
