@@ -1,2 +1,52 @@
-<h1>Admin::Genres#index</h1>
-<p>Find me in app/views/admin/genres/index.html.erb</p>
+<div class="container">
+  <div class="badge badge-warning">
+  <h3>ジャンル一覧・追加</h3>
+  </div>
+   <h4>ジャンル名</h4>
+    <% form_with model:@genre, url:admin_genres_path do |f| %>
+     <%= f.label :name %>
+     <%= f.text_field :name %>
+    <% end %>
+   <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <table class="table table-hover">
+        <thead>
+         <% @genres.each do |genre| %>
+          <tr class="table-secondary">
+           <th>ジャンル</th>
+           <td></td>
+          </tr>
+          <tr>
+            <th><%= genre.name %></th>
+            <td><%= link_to admin_genres_path do %>
+               <button type="button" class="btn btn-outline-success">編集する</button>
+               <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th><%= genre.name %></th>
+            <td><%= link_to admin_genres_path do %>
+               <button type="button" class="btn btn-outline-success">編集する</button>
+               <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th><%= genre.name %></th>
+            <td><%= link_to admin_genres_path do %>
+               <button type="button" class="btn btn-outline-success">編集する</button>
+               <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th><%= genre.name %></th>
+            <td><%= link_to admin_genres_path do %>
+               <button type="button" class="btn btn-outline-success">編集する</button>
+               <% end %>
+            </td>
+          </tr>
+         <% end %>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
