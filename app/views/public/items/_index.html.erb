@@ -1,0 +1,11 @@
+<div>
+  <% @items.each do |item| %>
+    <div class="col-md-2" style="margin: 10px 0;">
+      <%= link_to item_path(item.id) do %>
+        <p><%= image_tag item.get_image(100,100) %></p>
+        <p><%= item.name %></p>
+        <p>¥<%= item.with_tax_price %>円（税抜）</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
