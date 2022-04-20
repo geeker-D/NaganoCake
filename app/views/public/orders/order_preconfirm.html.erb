@@ -1,2 +1,67 @@
-<h1>Public::Orders#order_preconfirm</h1>
-<p>Find me in app/views/public/orders/order_preconfirm.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center'>
+    <div class="col-md-12">
+
+      <div class='row'>
+        <h5>注文情報確認</h5>
+      </div>
+      <div class='row'>
+        <div class='col-7 table_sticky'>
+          <table class='table table-hover'>
+            <thead class='thead-light scroll-th'>
+              <tr>
+                <th>商品名</th>
+                <th>単価(税込)</th>
+                <th>数量</th>
+                <th>小計</th>
+              </tr>
+            </thead>
+            <tbody class='scroll-tb'>
+              <% @cart_items.each do |cart_item| %>
+                <tr>
+                  <td class="item_name">
+                    <%= image_tag cart_item.item.get_item_image, size: '30x30' %>
+                    <%= cart_item.item.name %>
+                  </td>
+                  <td class="item_price">
+                    <%= number_to_currency((cart_item.item.price_non_tax * 1.1).floor, unit: "¥", format: "%u %n", precision: 0) %>
+                  </td>
+                  <td class="item_amount">
+                    <%= cart_item.amount%>
+                  </td>
+                  <td class="item_total-subprice">
+                    <%= number_to_currency((cart_item.item.price_non_tax * 1.1).floor * cart_item.amount, unit: "¥", format: "%u %n", precision: 0) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class=col-1>
+
+        </div>
+        <div class=col-4>
+          <table class='table table-hover'>
+            <thead class='thead-light'>
+              <tr>
+                <td>送料
+                <td>800
+              </tr>
+              <tr>
+                <td>商品合計
+                <td>1760
+              </tr>
+              <tr>
+                <td>請求金額
+                <td>2560
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

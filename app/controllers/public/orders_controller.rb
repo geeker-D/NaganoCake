@@ -17,29 +17,34 @@ class Public::OrdersController < Public::ApplicationController
 
   def order_preconfirm
     # binding.pry
-    # address_radio_type_customerMT = 1
-    # address_radio_type_shippingMT = 2
-    # address_radio_type_newInput = 3
+    address_radio_type_customerMT = 1
+    address_radio_type_shippingMT = 2
+    address_radio_type_newInput = 3
+    @cart_items = current_customer.cart_items
+    @payment_type = params[:order][:address_radio_type]
 
     # case params[:order][:address_radio_type]
     # when address_radio_type_customerMT then
-    #   @payment_type = a
     #   # ログイン顧客の住所情報を結合して格納する
     #   @shipping_address = b
     # when address_radio_type_shippingMT
-    #   @payment_type = a
     #   # セレクトボックスの配送先IDを元に検索し値を格納する
     #   @shipping_address = b
     # when address_radio_type_newInput
-    #   @payment_type = a
     #   # 送信パラメータの入力内容を結合して配送先住所を設定する
     #   @shipping_address = b
     # else
     #   #エラーメッセージを返す
     # end
-    # render "show",{ customer: @customer, url: order_path(@customer.id) }
+
   end
 
   def complete
   end
+
+  private
+  def order_params
+    params.require(:order).permit(:payment_type)
+  end
+
 end
