@@ -6,6 +6,7 @@ class Public::OrdersController < Public::ApplicationController
   end
 
   def new
+    
   end
 
   def create
