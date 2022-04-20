@@ -20,4 +20,9 @@ class Item < ApplicationRecord
     (price_non_tax * 1.1).floor
   end
 
+  #國原定義
+  def get_item_image
+    (image.attached?) ? image : 'no_image.jpg'
+  end
+
 end
