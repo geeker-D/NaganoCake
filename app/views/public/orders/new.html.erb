@@ -49,19 +49,34 @@
                 <%= f.label "新しいお届け先" %>
                 <div class='container'>
                   <div class="field">
-                    <!--郵便番号(ハイフンなし)-->
-                    <%= f.label "郵便番号(ハイフンなし)" %>
-                    <%= f.text_field :input_post_code, class: "form-control" %>
+                    <div class="row">
+                      <div class="col-3">
+                        <%= f.label "郵便番号(ハイフンなし)" %>
+                      </div>
+                      <div class="col-3">
+                        <%= f.text_field :input_post_code, class: "form-control" %>
+                      </div>
+                    </div>
                   </div>
                   <div class="field">
-                    <!--住所-->
-                    <%= f.label "住所" %>
-                    <%= f.text_field :input_address, class: "form-control" %>
+                    <div class="row">
+                      <div class="col-3">
+                        <%= f.label "住所" %>
+                      </div>
+                      <div class="col-8">
+                        <%= f.text_field :input_address, class: "form-control" %>
+                      </div>
+                    </div>
                   </div>
                   <div class="field">
-                    <!--宛名-->
-                    <%= f.label "宛名" %>
-                    <%= f.text_field :input_to_name, class: "form-control" %>
+                    <div class="row">
+                      <div class="col-3">
+                        <%= f.label "宛名" %>
+                      </div>
+                      <div class="col-3">
+                        <%= f.text_field :input_to_name, class: "form-control" %>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -70,7 +85,7 @@
         </div>
         <div class='container'>
           <div class="actions col-md-2">
-            <%= f.submit "確認画面へ進む",class: 'btn btn-sm btn-outline-primary btn-block' %>
+            <%= f.submit "確認画面へ進む",class: 'btn btn-sm btn-primary btn-block' %>
           </div>
         </div>
       </div>
