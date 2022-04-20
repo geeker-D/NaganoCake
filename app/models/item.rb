@@ -4,8 +4,13 @@ class Item < ApplicationRecord
   has_many :order_details
   belongs_to :genre
 
-  has_one_attached :image
-  
+  validates :name, presence:true
+  validates :summary, presence:true
+  validates :price_non_tax, presence:true
+  validates :image, presence:true
+
+  has_one_attached:image
+
   enum is_active: { 販売中: true, 販売停止中: false }
 
   def get_image(width, height)
