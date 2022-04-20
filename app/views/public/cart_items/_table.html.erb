@@ -17,7 +17,7 @@
           <%= cart_item.item.name %>
         </td>
         <td>
-          <%= (cart_item.item.price_non_tax * 1.1).floor %>
+          <%= number_to_currency((cart_item.item.price_non_tax * 1.1).floor, unit: "¥", format: "%u %n", precision: 0) %>
         </td>
         <td>
           <%= form_with model:cart_item, url: cart_item_path(cart_item.id), method: :patch, class: "form-inline ml-auto" do |f| %>
@@ -30,7 +30,7 @@
           <% end %>
         </td>
         <td>
-          <%= (cart_item.item.price_non_tax * 1.1).floor * cart_item.amount%>
+          <%= number_to_currency((cart_item.item.price_non_tax * 1.1).floor * cart_item.amount, unit: "¥", format: "%u %n", precision: 0) %>
         </td>
         <td>
           <%=link_to "削除する", cart_item_path(cart_item.id), method: :delete,  class: 'btn btn-sm btn-danger' %>
