@@ -1,2 +1,16 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<div class="container">
+  <div class="badge badge-warning">
+    <h3>商品詳細</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-4 offset-md-1">
+      <%= image_tag @item.get_image(500,500) %>
+    </div>
+    <div class="col-md-5">
+      <%= render 'show', item: @item %>
+      <%= link_to edit_admin_item_path(@item) do %>
+        <button type="button" class="btn btn-success btn-lg">編集する</button>
+      <% end %>
+    </div>
+  </div>
+</div>
