@@ -1,12 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+// ↓國原記載##############################################
 .icon{
   margin: 5px;
 }
 
 .login_customer_disp_name{
   margin: 0px 20px 0px 20px;
+}
+
+.navigation_area{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.btn_link{
+  margin: 0px 0px 10px 0px;
 }
 
 .heaedr-link {
@@ -67,3 +77,40 @@ p.footertopline{
   color:white;
   text-decoration:none;
 }
+
+.img_wrap_kuni{
+  transition-duration: 0.5s;
+}
+.img_wrap_kuni img{
+  width: 100%;
+  cursor: pointer;
+}
+.img_wrap_kuni:hover{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+}
+
+.news_cart_item {
+  width: 90px;
+  border-radius: 5px;
+  position: sticky;
+}
+
+.news_count {
+  position: absolute;
+  top: 0px;
+  left: calc(100% - 15px);
+  color: #FFF;
+  font-weight: bold;
+  font-size: small;
+  line-height: 20px;
+  text-align: center;
+  background: #ff7f50;
+  border-radius: 10px;
+  min-width: 20px;
+  padding: 0 3px;
+  box-sizing: border-box;
+}
+
+// ↑國原記載##############################################
