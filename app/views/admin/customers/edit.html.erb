@@ -1,2 +1,10 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container">
+  <div class="badge badge-warning">
+   <h3>ジャンル編集</h3>
+  </div>
+  <h4>ジャンル名</h4>
+     <%= form_with model:genre do |f| %>
+     <%= f.text_field:genre %>
+     <%= f.submit "変更を保存" %>
+     <% end %>
+
