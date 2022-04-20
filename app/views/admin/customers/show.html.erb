@@ -36,15 +36,16 @@
       </tr>
       <tr>
         <th>会員ステータス</th>
-        <td><%= @customer.is_deleted %></td>
+        <td><%= @customer.is_deleted ? '退会' : '有効' %></td>
       </tr>
     </thead>
   </table>
+    <div class="form_edit">
       <%= link_to edit_admin_customer_path(@customer) do %>
         <button type="button" class="btn btn-outline-success">編集する</button>
       <% end %>
-
       <%= link_to index_order_admin_customer_path(@customer.id) do %>
         <button type="button" class="btn btn-outline-info">注文履歴一覧を見る</button>
       <% end %>
+    </div>
 </div>
