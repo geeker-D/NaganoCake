@@ -1,0 +1,27 @@
+<table class="table table-bordered">
+  <tr>
+    <td>氏名</td>
+    <td><%= current_customer.last_name %> <%= current_customer.first_name %></td>
+  </tr>
+  <tr>
+    <td>カナ</td>
+    <td><%= current_customer.last_name_kana %> <%= current_customer.first_name_kana %></td>
+  </tr>
+  <tr>
+    <td>郵便番号</td>
+    <td><%= current_customer.post_code %></td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td><%= current_customer.address %></td>
+  </tr>
+  <tr>
+    <td>電話番号</td>
+    <td><%= current_customer.phone_number %></td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td>
+    <td><%= current_customer.email %></td>
+  </tr>
+</table>
+  

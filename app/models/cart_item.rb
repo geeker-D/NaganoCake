@@ -3,7 +3,6 @@ class CartItem < ApplicationRecord
   belongs_to :customer
   belongs_to :item
 
-
   def self.total_payment_no_shipfee(cart_items)
     total_payment_no_shipfee = 0
 
