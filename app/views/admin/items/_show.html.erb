@@ -1,0 +1,28 @@
+<table class="table table-borderless" style="text-align: center;">
+  <tr>
+    <th style="font-size: 30px; font-weight: bold;">商品名</th>
+    <td style="font-size: 30px; font-weight: bold;"><%= item.name %></td>
+  </tr>
+  <tr>
+    <th>商品説明</th>
+    <td><%= item.summary %></td>
+  </tr>
+  <tr>
+    <th>ジャンル</th>
+    <td><%= item.genre.name %></td>
+  </tr>
+  <tr>
+    <th>
+      税抜価格</br>
+      （税込価格）
+    </th>
+    <td>
+      <%= item.price_non_tax %>円</br>
+      （<%= item.with_tax_price %>円）
+    </td>
+  </tr>
+  <tr>
+    <th>販売ステータス</th>
+    <td><%= item.is_active %></td>
+  </tr>
+</table>
