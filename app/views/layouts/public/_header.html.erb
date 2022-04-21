@@ -8,9 +8,9 @@
       </a>
       <% if customer_signed_in? %>
         <div class="login_customer_disp_name">
-          <i class="fas fa-door-open"></i>ようこそ、
-          <b><%= current_customer.last_name %></b>
-          さん <i class="fas fa-exclamation"></i>
+          <i class="fas fa-door-open"></i><b>　～ようこそ、
+          <%= current_customer.last_name %>
+          さん！～</b>
         </div>
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
