@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       get :complete, on: :collection
     end
 
-    resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroyy]
+    resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
 
     resources :searches, only: [:search_item, :search_genre] do
       get :search_item, on: :collection

@@ -1,0 +1,29 @@
+<table class="table table-hover table-bordered mt-5">
+  <thead>
+    <tr>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>宛名</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% shipping_addresses.each do |shipping_address| %>
+      <tr>
+        <td class="text-left">
+          <%= shipping_address.post_code %>
+        </td>
+        <td class="text-left">
+          <%= shipping_address.address %>
+        </td>
+        <td class="text-left">
+          <%= shipping_address.to_name %>
+        </td>
+        <td class="text-center">
+          <%= link_to "編集する", edit_shipping_address_path(shipping_address), class: "btn-sm btn-primary mr-2" %>
+          <%= link_to "削除する", shipping_address_path(shipping_address), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
