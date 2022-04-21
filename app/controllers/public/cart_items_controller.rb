@@ -14,7 +14,7 @@ class Public::CartItemsController < Public::ApplicationController
         redirect_to cart_items_path, notice: "#{@cart_item_now.item.name}をカートに追加しました。"
       elsif @cart_item_now.amount > 10
         redirect_to request.referer, notice: "#{@cart_item_now.item.name}の合計が10個以内になるように選択してください"
-      else 
+      else
         redirect_to request.referer, notice: "個数を選択してください"
       end
     else

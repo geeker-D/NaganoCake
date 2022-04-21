@@ -7,8 +7,7 @@ class Public::OrdersController < Public::ApplicationController
 
   def new
     @order = Order.new
-    @shipping_info = ShippingAddress.where(customer_id: current_customer.id).map{ |sa| ["〒"+sa.post_code+" "+sa.address+" "+sa.to_name, sa.id]}
-
+    @shipping_info = ShippingAddress.customer_relation(current_customer)
   end
 
   def create
@@ -23,18 +22,19 @@ class Public::OrdersController < Public::ApplicationController
     address_radio_type_newInput = "3"
 
     @cart_items = current_customer.cart_items
-    @payment_type = params[:order][:address_radio_type]
+    @payment_type_key = params[:order][:payment_type]
+    @payment_type_value = Order.payment_types[:"#{@payment_type_key}"]
     @shipping_fee = 800
     @total_payment_no_shipfee = CartItem.total_payment_no_shipfee(@cart_items)
     @total_payment = @total_payment_no_shipfee + @shipping_fee
 
     @order = Order.new
-    # binding.pry
+
     case params[:order][:address_radio_type]
     when address_radio_type_customerMT then
       @post_code = current_customer.post_code
       @address = current_customer.address
-    @to_name = current_customer.last_name + current_customer.first_name
+      @to_name = current_customer.last_name + current_customer.first_name
 
     when address_radio_type_shippingMT
       ship_address = ShippingAddress.find(params[:order][:shipping_address_id])
@@ -49,7 +49,6 @@ class Public::OrdersController < Public::ApplicationController
     else
       #エラーメッセージを返す処理を定義予定
     end
-
   end
 
   def complete

@@ -10,4 +10,8 @@ class Order < ApplicationRecord
 
   #バリデーション
   
+  
+  
+
+
 end

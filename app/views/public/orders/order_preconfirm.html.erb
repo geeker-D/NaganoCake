@@ -68,7 +68,7 @@
           <h6><b>支払方法</b><h6>
         </div>
         <div class='col-3'>
-          クレジットカード
+          <%= Order.payment_types_i18n[:"#{@payment_type_key}"] %>
         </div>
       </div>
       <div class='row'>
@@ -78,23 +78,17 @@
         <div class='col-10'>
           <%= "〒"+@post_code+" "+@address %><br>
           <%= @to_name %>
-          <!--"〒9999999サンプル住所XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"<br>-->
-          <!--"宛名"-->
         </div>
       </div>
       <div class='row'>
-        <!--#hidden form field-->
         <%= form_with model:@order,url: orders_path, method: :post, local:true do |f| %>
-        <div class='container'>
-          <!--#hidden form field-->
-        </div>
         <div class='container'>
           <div class="actions">
             <%= f.hidden_field :input, class: "form-control" %>
             <%= f.hidden_field :input, class: "form-control" %>
             <%= f.hidden_field :input, class: "form-control" %>
             <%= f.hidden_field :input, class: "form-control" %>
-            <%= f.submit "確認画面へ進む",class: 'btn btn-sm btn-primary btn-block' %>
+            <%= f.submit "注文を確定する",class: 'btn btn-sm btn-primary btn-block' %>
           </div>
         </div>
         <% end %>
