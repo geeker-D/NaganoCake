@@ -116,6 +116,48 @@ p.footertopline{
   box-sizing: border-box;
 }
 
+// li.order_comp_li {
+//   display: inline-block;
+// }
+// li.order_comp_li:nth-child(odd) {
+//   -webkit-animation: horizontal1 1s ease-in-out infinite alternate;
+// }
+// li.order_comp_li:nth-child(even) {
+//   -webkit-animation: horizontal2 1s ease-in-out infinite alternate;
+// }
+
+// span.order_comp_sp {
+//   display: block;
+//   text-align: center;
+//   -webkit-animation: vertical 1s ease-in-out infinite alternate;
+// }
+// span.order_comp_sp img{
+//   width: 100px;
+//   height: auto;
+// }
+// li.order_comp_li:nth-child(1) span {
+//   -webkit-animation-duration: 1.1s;
+// }
+// li.order_comp_li:nth-child(2) span {
+//   -webkit-animation-duration: 1.3s;
+// }
+// li.order_comp_li:nth-child(3) span {
+//   -webkit-animation-duration: 1.5s;
+// }
+// @-webkit-keyframes horizontal1 {
+//   0% { -webkit-transform:translateX( -12px); }
+//   100% { -webkit-transform:translateX(  0px); }
+// }
+// @-webkit-keyframes horizontal2 {
+//   0% { -webkit-transform:translateX(  12px); }
+//   100% { -webkit-transform:translateX(  0px); }
+// }
+// @-webkit-keyframes vertical {
+//   0% { -webkit-transform:translateY(-40px); }
+//   100% { -webkit-transform:translateY(  0px); }
+// }
+
+
 // ↑國原記載##############################################
 
 

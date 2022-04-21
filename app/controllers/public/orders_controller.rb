@@ -34,7 +34,7 @@ class Public::OrdersController < Public::ApplicationController
 
   def order_preconfirm
     #ラジオボタンの選択を判断するためのフラグを定義
-    address_radio_type_customerMT = "1"
+    address_radio_type_current_customer = "1"
     address_radio_type_shippingMT = "2"
     address_radio_type_newInput = "3"
 
@@ -48,7 +48,7 @@ class Public::OrdersController < Public::ApplicationController
     @order = Order.new
 
     case params[:order][:address_radio_type]
-    when address_radio_type_customerMT then
+    when address_radio_type_current_customer then
       @post_code = current_customer.post_code
       @address = current_customer.address
       @to_name = current_customer.last_name + current_customer.first_name
