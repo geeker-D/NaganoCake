@@ -22,7 +22,11 @@ class Public::OrdersController < Public::ApplicationController
     address_radio_type_newInput = 3
     @cart_items = current_customer.cart_items
     @payment_type = params[:order][:address_radio_type]
-
+    @shipping_fee = 800
+    @total_payment_no_shipfee = CartItem.total_payment_no_shipfee(@cart_items)
+    @total_payment = @total_payment_no_shipfee + @shipping_fee
+    
+    @order = Order.new
     # case params[:order][:address_radio_type]
     # when address_radio_type_customerMT then
     #   # ログイン顧客の住所情報を結合して格納する
