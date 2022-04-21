@@ -1,9 +1,5 @@
   ja:
     enums:
-      customer:
-        is_deleted:
-          effective: "有効"
-          withdrawal: "退会"
       order:
         payment_type:
           credit_card: "クレジットカード"

@@ -19,7 +19,7 @@
                 <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></th>
                <% end %>
            <th><%= order.order_details.sum(:amount) %></th>
-           <th><%= order.status %></th>
+           <th><%= order.status_i18n %></th>
           </tr>
         </tbody>
         <% end %>

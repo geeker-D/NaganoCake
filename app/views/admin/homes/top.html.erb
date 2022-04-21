@@ -21,7 +21,7 @@
                <% end %>
             <th><%= order.customer.last_name %><%= order.customer.first_name %></th>
             <th><%= order.order_details.sum(:amount) %></th>
-            <th><%= order.status %></th>
+            <th><%= order.status_i18n %></th>
           </tr>
         </tbody>
           <% end %>

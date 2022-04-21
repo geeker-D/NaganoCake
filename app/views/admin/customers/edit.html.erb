@@ -37,10 +37,10 @@
         <th>会員ステータス</th>
           <div class="customer_field">
             <td>
-              <%= f.radio_button :is_deleted, Customer.is_deleteds.key(0) %>
-              <%= f.label :is_deleted, Customer.is_deleteds_i18n[:effective] %>
-              <%= f.radio_button :is_deleted, Customer.is_deleteds.key(1) %>
-              <%= f.label :is_deleted, Customer.is_deleteds_i18n[:withdrawal]%>
+              <%= f.radio_button :is_deleted, :"有効" %>
+                <%= f.label :is_deleted, "有効" %>
+              <%= f.radio_button :is_deleted, :"退会" %>
+                <%= f.label :is_deleted, "退会" %>
             </td>
           </div>
       </tr>

@@ -11,8 +11,7 @@ class Customer < ApplicationRecord
 
   validates :first_name, :last_name, :first_name_kana, :last_name_kana, :post_code, :address, :phone_number, :email, presence: true
 
-  enum is_deleted: { effective: 0,withdrawal: 1}
- 
+  enum is_deleted: { 有効: true, 退会: false }
 
 
 end
