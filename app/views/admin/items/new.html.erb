@@ -1,2 +1,47 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<div class="container">
+  <div class="badge badge-warning">
+  　<h3>商品新規登録</h3>
+  </div>
+    <div class="row">
+     <div class="col-sm-12 col-md-8 mx-auto">
+       <%= form_with model:@item, url:admin_items_path do |f| %>
+
+          <div class="form_group">
+            <%= f.label :image, "商品画像" %>
+            <%= f.file_field :image,  accept: 'image/*' %>
+          </div>
+
+          <div class="form_group pt-2 pb-2">
+            <%= f.label :name, "商品名" %>
+            <%= f.text_field :name, size: "40" %>
+          </div>
+
+          <div class="form_group pt-2 pb-2">
+            <%= f.label :summary, "商品説明" %>
+            <%= f.text_area :summary, size: "40x8" %>
+          </div>
+
+          <div class="form_group pt-2 pb-2">
+            <%= f.label :genre_id, 'ジャンル' %>
+            <%= f.collection_select :genre_id, @genres,:id,:name %>
+          </div>
+
+          <div class="form_group pt-2 pb-2">
+            <%= f.label :price_non_tax, "税抜価格" %>
+            <%= f.text_field :price_non_tax, size: "40" %>円
+          </div>
+
+          <div class="form_botton pt-2 pb-2">
+            <%= f.label :is_active, "販売ステータス" %>
+             <%= f.radio_button :is_active, :"販売中" %>
+            <%= f.label :is_active, "販売中" %>
+             <%= f.radio_button :is_active, :"販売停止中" %>
+            <%= f.label :is_active, "販売停止中" %>
+          </div>
+        <div class="text_center">
+         <%= f.submit "新規登録" ,class: "btn btn-outline-success btn-lg" %>
+         <% end %>
+       </div>
+     </div>
+  </div>
+</div>
