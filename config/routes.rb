@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     devise_for :customers,skip: [:passwords]
     get "customers/mypage"=>'customers#show'
     resources :customers, only: [:edit, :update] do
-      patch :unsubscribe, on: :member
+      get :unsubscribe, on: :member
       patch :defection, on: :member
     end
     resources :cart_items, only: [:index, :create, :update, :destroy] do
