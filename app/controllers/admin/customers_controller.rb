@@ -22,6 +22,8 @@ class Admin::CustomersController < Admin::ApplicationController
   end
 
   def index_order
+    @customer = Customer.find(params[:id])
+    @orders = @customer.orders
   end
 
   private
