@@ -11,11 +11,28 @@ class Public::OrdersController < Public::ApplicationController
   end
 
   def create
-    
+    cart_items = current_customer.cart_items
+    order = Order.new(order_params)
+    order.customer_id = current_customer.id
+    order.total_payment = CartItem.total_payment_no_shipfee(cart_items) + params[:order][:shipping_fee].to_i
+    if order.save
+      save_order = Order.find_by(id: Order.where("customer_id = ?", current_customer.id).maximum(:id))
+      cart_items.each do |ci|
+        order_details = OrderDetail.new(order_id: save_order.id )
+        order_details.item_id = ci.item.id
+        order_details.amount = ci.amount
+        order_details.price = (ci.item.price_non_tax * 1.1).floor
+        order_details.save
+        ci.destroy
+      end
+    else
+      #エラー処理を定義
+      redirect_to root_path
+    end
+    redirect_to complete_orders_path
   end
 
   def order_preconfirm
-
     #ラジオボタンの選択を判断するためのフラグを定義
     address_radio_type_customerMT = "1"
     address_radio_type_shippingMT = "2"
@@ -56,7 +73,7 @@ class Public::OrdersController < Public::ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:payment_type)
+    params.require(:order).permit(:payment_type, :post_code, :address, :to_name, :shipping_fee)
   end
 
 end

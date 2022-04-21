@@ -84,10 +84,11 @@
         <%= form_with model:@order,url: orders_path, method: :post, local:true do |f| %>
         <div class='container'>
           <div class="actions">
-            <%= f.hidden_field :input, class: "form-control" %>
-            <%= f.hidden_field :input, class: "form-control" %>
-            <%= f.hidden_field :input, class: "form-control" %>
-            <%= f.hidden_field :input, class: "form-control" %>
+            <%= f.hidden_field :payment_type, :value => @payment_type_key, class: "form-control" %>
+            <%= f.hidden_field :post_code, :value => @post_code, class: "form-control" %>
+            <%= f.hidden_field :address, :value => @address, class: "form-control" %>
+            <%= f.hidden_field :to_name, :value => @to_name, class: "form-control" %>
+            <%= f.hidden_field :shipping_fee, :value =>  @shipping_fee, class: "form-control" %>
             <%= f.submit "注文を確定する",class: 'btn btn-sm btn-primary btn-block' %>
           </div>
         </div>
