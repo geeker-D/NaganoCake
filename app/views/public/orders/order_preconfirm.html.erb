@@ -5,7 +5,7 @@
         <h5>注文情報確認</h5>
       </div>
       <div class='row'>
-        <div class='col-7 table_sticky'>
+        <div class='col-8'>
           <table class='table table-hover'>
             <thead class='thead-light scroll-th'>
               <tr>
@@ -39,7 +39,7 @@
         <div class=col-1>
           <!--テーブル間のスペース-->
         </div>
-        <div class=col-4>
+        <div class=col-3>
           <table class='table table-hover'>
             <thead class='thead-light'>
               <tr>
@@ -75,8 +75,11 @@
         <div class='col-1'>
           <h6><b>お届け先</b><h6>
         </div>
-        <div class='col-3'>
-          "〒9999999サンプル住所XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        <div class='col-10'>
+          <%= "〒"+@post_code+" "+@address %><br>
+          <%= @to_name %>
+          <!--"〒9999999サンプル住所XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"<br>-->
+          <!--"宛名"-->
         </div>
       </div>
       <div class='row'>
@@ -87,6 +90,10 @@
         </div>
         <div class='container'>
           <div class="actions">
+            <%= f.hidden_field :input, class: "form-control" %>
+            <%= f.hidden_field :input, class: "form-control" %>
+            <%= f.hidden_field :input, class: "form-control" %>
+            <%= f.hidden_field :input, class: "form-control" %>
             <%= f.submit "確認画面へ進む",class: 'btn btn-sm btn-primary btn-block' %>
           </div>
         </div>
