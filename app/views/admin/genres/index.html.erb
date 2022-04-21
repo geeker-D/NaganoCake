@@ -2,46 +2,27 @@
   <div class="badge badge-warning">
   <h3>ジャンル一覧・追加</h3>
   </div>
-   <h4>ジャンル名</h4>
-    <% form_with model:@genre, url:admin_genres_path do |f| %>
-     <%= f.label :name %>
+   <div class="genre-form mt-5 mb-5">
+    <%= form_with model:@genre, url:admin_genres_path do |f| %>
+     <%= f.label :name, "ジャンル名" %>
      <%= f.text_field :name %>
+     　<%= f.submit "新規登録", class: 'btn btn-outline-success btn-lg' %>
     <% end %>
+   </div>
    <div class="row">
     <div class="col-sm-12 col-md-8">
       <table class="table table-hover">
         <thead>
-         <% @genres.each do |genre| %>
           <tr class="table-secondary">
            <th>ジャンル</th>
            <td></td>
           </tr>
+          <% @genres.each do |genre| %>
           <tr>
             <th><%= genre.name %></th>
-            <td><%= link_to admin_genres_path do %>
+            <td><%= link_to edit_admin_genre_path(genre.id) do %>
                <button type="button" class="btn btn-outline-success">編集する</button>
-               <% end %>
-            </td>
-          </tr>
-          <tr>
-            <th><%= genre.name %></th>
-            <td><%= link_to admin_genres_path do %>
-               <button type="button" class="btn btn-outline-success">編集する</button>
-               <% end %>
-            </td>
-          </tr>
-          <tr>
-            <th><%= genre.name %></th>
-            <td><%= link_to admin_genres_path do %>
-               <button type="button" class="btn btn-outline-success">編集する</button>
-               <% end %>
-            </td>
-          </tr>
-          <tr>
-            <th><%= genre.name %></th>
-            <td><%= link_to admin_genres_path do %>
-               <button type="button" class="btn btn-outline-success">編集する</button>
-               <% end %>
+                <% end %>
             </td>
           </tr>
          <% end %>
