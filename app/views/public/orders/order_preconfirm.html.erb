@@ -1,2 +1,104 @@
-<h1>Public::Orders#order_preconfirm</h1>
-<p>Find me in app/views/public/orders/order_preconfirm.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center'>
+    <div class="col-md-12">
+      <div class='row'>
+        <h5>注文情報確認</h5>
+      </div>
+      <div class='row'>
+        <div class='col-8'>
+          <table class='table table-hover'>
+            <thead class='thead-light scroll-th'>
+              <tr>
+                <th>商品名</th>
+                <th>単価(税込)</th>
+                <th>数量</th>
+                <th>小計</th>
+              </tr>
+            </thead>
+            <tbody class='scroll-tb'>
+              <% @cart_items.each do |cart_item| %>
+                <tr>
+                  <td class="item_name">
+                    <%= image_tag cart_item.item.get_item_image, size: '30x30' %>
+                    <%= cart_item.item.name %>
+                  </td>
+                  <td class="item_price">
+                    <%= number_to_currency((cart_item.item.price_non_tax * 1.1).floor, unit: "¥", format: "%u %n", precision: 0) %>
+                  </td>
+                  <td class="item_amount">
+                    <%= cart_item.amount%>
+                  </td>
+                  <td class="item_total-subprice">
+                    <%= number_to_currency((cart_item.item.price_non_tax * 1.1).floor * cart_item.amount, unit: "¥", format: "%u %n", precision: 0) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class=col-1>
+          <!--テーブル間のスペース-->
+        </div>
+        <div class=col-3>
+          <table class='table table-hover'>
+            <thead class='thead-light'>
+              <tr>
+                <td>送料</td>
+                <td>
+                  <%= number_to_currency(@shipping_fee, unit: "¥", format: "%u %n", precision: 0) %>
+                </td>
+              </tr>
+              <tr>
+                <td>商品合計</td>
+                <td>
+                  <%= number_to_currency(@total_payment_no_shipfee, unit: "¥", format: "%u %n", precision: 0) %>
+              </tr>
+              <tr>
+                <td>請求金額</td>
+                <td>
+                  <%= number_to_currency(@total_payment, unit: "¥", format: "%u %n", precision: 0) %>
+                </td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-1'>
+          <h6><b>支払方法</b><h6>
+        </div>
+        <div class='col-3'>
+          クレジットカード
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-1'>
+          <h6><b>お届け先</b><h6>
+        </div>
+        <div class='col-10'>
+          <%= "〒"+@post_code+" "+@address %><br>
+          <%= @to_name %>
+          <!--"〒9999999サンプル住所XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"<br>-->
+          <!--"宛名"-->
+        </div>
+      </div>
+      <div class='row'>
+        <!--#hidden form field-->
+        <%= form_with model:@order,url: orders_path, method: :post, local:true do |f| %>
+        <div class='container'>
+          <!--#hidden form field-->
+        </div>
+        <div class='container'>
+          <div class="actions">
+            <%= f.hidden_field :input, class: "form-control" %>
+            <%= f.hidden_field :input, class: "form-control" %>
+            <%= f.hidden_field :input, class: "form-control" %>
+            <%= f.hidden_field :input, class: "form-control" %>
+            <%= f.submit "確認画面へ進む",class: 'btn btn-sm btn-primary btn-block' %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
