@@ -37,7 +37,6 @@
   </div>
   <div class="row">
     <div class="col-md-8">
-      <%= form_with model:@order_detail, url:admin_order_order_detail_path(@order.id),method: :patch do |f| %>
       <table class="table table-hover">
         <thead>
           <tr class="table-secondary">
@@ -48,22 +47,23 @@
             <th>製作ステータス</th>
           </tr>
         </thead>
-        <% @order_details.each do |od| %>
+        <% @order_details.each do |order_detail| %>
         <tbody>
           <tr>
-            <td><%= od.item.name %></td>
-            <td><%= od.price %></td>
-            <td><%= od.amount %></td>
-            <td><%= (od.price).floor*od.amount %></td>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.price %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= (order_detail.price).floor*order_detail.amount %></td>
             <td>
-              <%= f.select :product_status, OrderDetail.product_statuses.keys.map {|stat| [I18n.t("enums.order_detail.product_status.#{stat}"), stat]} %>
-              <%= f.submit "更新", class: "btn btn-outline-success" %>
+              <%= form_with model:[@order_detail], url:admin_order_order_detail_path(order_detail.id),method: :patch do |f| %>
+                <%= f.select :product_status, OrderDetail.product_statuses.keys.map {|stat| [I18n.t("enums.order_detail.product_status.#{stat}"), stat]} %>
+                <%= f.submit "更新" ,class: "btn btn-outline-success" %>
+              <% end %>
             </td>
           </tr>
-          <% end %>
         </tbody>
+        <% end %>
       </table>
-      <% end %>
     </div>
   </div>
   <div class="row">
