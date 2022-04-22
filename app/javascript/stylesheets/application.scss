@@ -8,8 +8,8 @@
 
 .login_customer_disp_name{
   margin: 0px 20px 0px 20px;
-  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',
-  sans-serif;
+  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+  font-size: 12px;
 }
 
 
@@ -125,9 +125,10 @@ p.footertopline{
 // padding-bottom: 140px;
 // }
 // ヘッダー固定の際に
-// .Contents {
+.Contents {
+font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 // overflow: auto; /* コンテンツの表示を自動に設定（スクロール） */
-// }
+}
 
 // li.order_comp_li {
 //   display: inline-block;
