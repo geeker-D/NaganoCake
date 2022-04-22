@@ -1,20 +1,15 @@
 <div>
-      <% @items.each do |item| %>
-      <div class="card cards" style="float:left; margin-right:20px; text-align: center;">
-          <!--<div class="card-header">-->
-          <!--  <b>%= item.name %></b>-->
-          <!--</div>-->
-          <div class="card-body" style="background-color:#faebd7;">
-            <%= link_to item_path(item.id) do %>
-              <p><%= image_tag item.get_image(150,150), class: "card-img-top" %></p>
-              <div class="card_text">
-                <%= item.name %><br>
-                ￥<%= item.with_tax_price %>（税込）
-              </div>
-            <% end %>
-          </div>
-      </div>
+  <% @items.each do |item| %>
+  <div class="card cards" style="float:left; margin-right:20px; text-align: center;">
+    <div class="card-body" style="background-color:#faebd7;">
+      <%= link_to item_path(item.id) do %>
+        <p><%= image_tag item.get_image(150,150), class: "card-img-top" %></p>
+        <div class="card_text">
+          <%= item.name %><br>
+          ￥<%= item.with_tax_price %>（税込）
+        </div>
       <% end %>
     </div>
   </div>
+  <% end %>
 </div>
