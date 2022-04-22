@@ -135,6 +135,13 @@ p.footertopline{
   color:#000000;
 }
 
+.cards::before{
+    content: "NEW !!";
+    column-rule: #ffffff;
+    background-color: #f0e68c;
+    padding: 5px 25px;
+}
+
 .top_bottom_link {
  margin-top: 20px;
 }
