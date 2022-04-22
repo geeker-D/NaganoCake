@@ -9,5 +9,6 @@ class Order < ApplicationRecord
   enum status: { wait_deposit: 0, confirm_deposit: 1, making:2, prepare_shipping:3, complete_shipping:4 }
 
   #バリデーション
+  validates :post_code, {length: {is: 7} }
 
 end
