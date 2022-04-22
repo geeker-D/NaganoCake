@@ -1,0 +1,11 @@
+<div>
+  <% @items.each do |item| %>
+    <div class="box" style="float:left; margin-right:20px; text-align: center;" >
+      <%= link_to item_path(item.id) do %>
+        <p><%= image_tag item.get_image(140,140), class: "rounded-circle" %></p>
+        <p><%= item.name %></p>
+        <p>¥<%= item.with_tax_price %>円（税込）</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
