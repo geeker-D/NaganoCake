@@ -10,3 +10,9 @@
           making: "製作中"
           prepare_shipping: "発送準備中"
           complete_shipping: "発送済み"
+      order_detail:
+        product_status:
+          impossible_making: "製作不可"
+          wait_making: "製作待ち"
+          making: "製作中"
+          complete: "製作完了"
