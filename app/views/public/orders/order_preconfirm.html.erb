@@ -43,18 +43,18 @@
           <table class='table table-hover'>
             <thead class='thead-light'>
               <tr>
-                <td>送料</td>
+                <th>送料</th>
                 <td>
                   <%= number_to_currency(@shipping_fee, unit: "¥", format: "%u %n", precision: 0) %>
                 </td>
               </tr>
               <tr>
-                <td>商品合計</td>
+                <th>商品合計</th>
                 <td>
                   <%= number_to_currency(@total_payment_no_shipfee, unit: "¥", format: "%u %n", precision: 0) %>
               </tr>
               <tr>
-                <td>請求金額</td>
+                <th>請求金額</th>
                 <td>
                   <%= number_to_currency(@total_payment, unit: "¥", format: "%u %n", precision: 0) %>
                 </td>
@@ -68,7 +68,7 @@
           <h6><b>支払方法</b><h6>
         </div>
         <div class='col-3'>
-          クレジットカード
+          <%= Order.payment_types_i18n[:"#{@payment_type_key}"] %>
         </div>
       </div>
       <div class='row'>
@@ -78,23 +78,18 @@
         <div class='col-10'>
           <%= "〒"+@post_code+" "+@address %><br>
           <%= @to_name %>
-          <!--"〒9999999サンプル住所XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"<br>-->
-          <!--"宛名"-->
         </div>
       </div>
       <div class='row'>
-        <!--#hidden form field-->
         <%= form_with model:@order,url: orders_path, method: :post, local:true do |f| %>
         <div class='container'>
-          <!--#hidden form field-->
-        </div>
-        <div class='container'>
           <div class="actions">
-            <%= f.hidden_field :input, class: "form-control" %>
-            <%= f.hidden_field :input, class: "form-control" %>
-            <%= f.hidden_field :input, class: "form-control" %>
-            <%= f.hidden_field :input, class: "form-control" %>
-            <%= f.submit "確認画面へ進む",class: 'btn btn-sm btn-primary btn-block' %>
+            <%= f.hidden_field :payment_type, :value => @payment_type_key, class: "form-control" %>
+            <%= f.hidden_field :post_code, :value => @post_code, class: "form-control" %>
+            <%= f.hidden_field :address, :value => @address, class: "form-control" %>
+            <%= f.hidden_field :to_name, :value => @to_name, class: "form-control" %>
+            <%= f.hidden_field :shipping_fee, :value =>  @shipping_fee, class: "form-control" %>
+            <%= f.submit "注文を確定する",class: 'btn btn-sm btn-primary btn-block' %>
           </div>
         </div>
         <% end %>
