@@ -14,48 +14,48 @@
         <% if admin_signed_in? %>
           <li>
             <%= link_to admin_items_path,class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-cheese"></i> 商品一覧
+              <i class="fas fa-cheese"></i><b>商品一覧</b>
             <% end %>
           </li>
           <li>
             <%= link_to admin_customers_path,class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-user-friends"></i> 会員一覧
+              <i class="fas fa-user-friends"></i><b>会員一覧</b>
             <% end %>
           </li>
           <li>
             <%= link_to admin_root_path,class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-clipboard-check"></i> 注文履歴一覧
+              <i class="fas fa-clipboard-check"></i><b>注文履歴一覧</b>
             <% end %>
           </li>
           <li>
             <%= link_to admin_genres_path,class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-folder-open"></i> ジャンル一覧
+              <i class="fas fa-folder-open"></i><b>ジャンル一覧</b>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-sign-in-alt"></i> ログアウト
+              <i class="fas fa-sign-in-alt"></i><b>ログアウト</b>
             <% end %>
           </li>
         <% else %>
           <li>
             <%= link_to about_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-exclamation-circle"></i> About
+              <i class="fas fa-exclamation-circle"></i><b>About</b>
             <% end %>
           </li>
           <li>
             <%= link_to admin_items_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-cheese"></i> 商品一覧
+              <i class="fas fa-cheese"></i><b>商品一覧</b>
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_registration_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-user-plus"></i> 新規登録
+              <i class="fas fa-user-plus"></i><b>新規登録</b>
             <% end %>
           </li>
           <li>
             <%= link_to new_admin_session_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-sign-in-alt"></i> ログイン
+              <i class="fas fa-sign-in-alt"></i><b>ログイン</b>
             <% end %>
           </li>
           <% end %>
