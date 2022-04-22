@@ -11,5 +11,4 @@ class Order < ApplicationRecord
   #バリデーション
   validates :post_code, {length: {is: 7} }
 
-
 end
