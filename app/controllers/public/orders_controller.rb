@@ -25,11 +25,11 @@ class Public::OrdersController < Public::ApplicationController
         order_details.save
         ci.destroy
       end
+      redirect_to complete_orders_path
     else
       #エラー処理を定義
       redirect_to root_path
     end
-    redirect_to complete_orders_path
   end
 
   def order_preconfirm

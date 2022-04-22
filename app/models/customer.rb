@@ -10,6 +10,8 @@ class Customer < ApplicationRecord
   has_many :items,through: :cart_items
 
   validates :first_name, :last_name, :first_name_kana, :last_name_kana, :post_code, :address, :phone_number, :email, presence: true
+  validates :post_code, {length: {is: 7} }
+  validates :phone_number, length: { minimum: 10, maximum: 11 }
 
   enum is_deleted: { 有効: true, 退会: false }
 
