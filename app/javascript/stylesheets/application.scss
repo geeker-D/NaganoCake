@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "skippr.css";
 
 // ↓國原記載##############################################
 .icon{
@@ -202,6 +203,28 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 .top_message {
   text-decoration: underline;
 }
+
+ #container_about {
+  height: 400px;
+}
+
+.image1 {
+  background-image: url(/assets/CheeseCake.jpg);
+}
+.image2 {
+  background-image: url(/assets/cookie.jpg);
+}
+.image3 {
+  background-image: url(/assets/donutIMGL5823_TP_V4.jpg);
+}
+.image4 {
+  background-image: url(/assets/ShortCake.jpg);
+}
+.image5 {
+  background-image: url(/assets/taruto.jpg);
+}
+
+
 
 // ↑國原記載##############################################
 
