@@ -25,9 +25,12 @@
             <%= render 'index', item: @item %>
           </div>
         </div>
+        <div class="container">
+          <div class="text-right">
+            <%= link_to "全ての商品を見る＞　", items_path %>
+          </div>
+        </div>
       </div>
-      <div style = "text-align: center;">
-        <%= paginate @items %></div>
     </div>
   </div>
 </div>
