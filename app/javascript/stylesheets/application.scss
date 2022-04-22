@@ -115,6 +115,26 @@ p.footertopline{
   padding: 0 3px;
   box-sizing: border-box;
 }
+
+.cards {
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+.cards:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
+.card_text {
+  pointer-events: none;
+  text-decoration:none;
+  color:#000000;
+}
+
+.top_bottom_link {
+ margin-top: 20px;
+}
 // ヘッダーを固定する
 // .Header {
 // position: fixed;
