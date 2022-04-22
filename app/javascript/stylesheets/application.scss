@@ -115,6 +115,19 @@ p.footertopline{
   padding: 0 3px;
   box-sizing: border-box;
 }
+// ヘッダーを固定する
+// .Header {
+// position: fixed;
+// top: 0;
+// left: 0;
+// width: 100%;
+// height: 140px;
+// padding-bottom: 140px;
+// }
+// ヘッダー固定の際に
+// .Contents {
+// overflow: auto; /* コンテンツの表示を自動に設定（スクロール） */
+// }
 
 // li.order_comp_li {
 //   display: inline-block;
