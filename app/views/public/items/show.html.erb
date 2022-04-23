@@ -1,10 +1,10 @@
 <div class = "container">
-  <div class = "row" style="margin-top: 50px;">
+  <div class = "row mt-5">
     <div class = "col-md-2">
-      <%= render 'genre_search', genres: @genres %>
+      <%= render 'genre', genres: @genres %>
     </div>
     <div class = 'col-md-3 offset-md-1'>
-      <%= image_tag @item.get_image(300,300) %>
+      <%= image_tag @item.get_item_image,size:"300x300" %>
     </div>
     <div class = "col-md-4 offset-md-1" >
       <h2 style="margin-bottom: 30px; font-weight: bold;"><%= @item.name %></h2>

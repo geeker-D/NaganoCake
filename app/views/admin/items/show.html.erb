@@ -2,9 +2,9 @@
   <div class="badge badge-warning">
     <h3>商品詳細</h3>
   </div>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-4 offset-md-1">
-      <%= image_tag @item.get_image(500,500) %>
+      <%= image_tag @item.get_item_image, size:"350x350" %>
     </div>
     <div class="col-md-5">
       <%= render 'show', item: @item %>

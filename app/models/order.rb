@@ -11,5 +11,5 @@ class Order < ApplicationRecord
   #バリデーション
   validates :customer_id, :payment_type, :post_code, :address, :to_name, :shipping_fee, :total_payment,  presence: true
   validates :post_code, {length: {is: 7} }
-
+  
 end

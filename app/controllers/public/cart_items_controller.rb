@@ -9,8 +9,8 @@ class Public::CartItemsController < Public::ApplicationController
     if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
       @cart_item_now = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
       @cart_item_now.amount += params[:cart_item][:amount].to_i
-      @cart_item_now.update(amount: @cart_item_now.amount)
       if @cart_item_now.amount <= 10 && params[:cart_item][:amount].to_i != 0
+        @cart_item_now.update(amount: @cart_item_now.amount)
         redirect_to cart_items_path, notice: "#{@cart_item_now.item.name}をカートに追加しました。"
       elsif @cart_item_now.amount > 10
         redirect_to request.referer, notice: "#{@cart_item_now.item.name}の合計が10個以内になるように選択してください"

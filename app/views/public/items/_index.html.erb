@@ -1,8 +1,8 @@
-<div>
+<div class="mt-5">
   <% @items.each do |item| %>
-    <div class="box" style="float:left; margin-right:20px; text-align: center;" >
+    <div class="mr-3" style="float:left; text-align: center;" >
       <%= link_to item_path(item.id) do %>
-        <p><%= image_tag item.get_image(180,180) %></p>
+        <p><%= image_tag item.get_item_image,size:"190x190" %></p>
         <p><%= item.name %></p>
         <p>¥<%= item.with_tax_price %>円（税込）</p>
       <% end %>
