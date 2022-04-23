@@ -8,7 +8,7 @@
       <div class='container'>
         <div class='row'>
           <h6>支払い方法</h6>
-          <div class='container'>
+          <div class='container input_field_kk'>
             <div class="field">
               <%= f.radio_button :payment_type, Order.payment_types.key(0),{checked:true} %>
               <%= f.label :payment_type, Order.payment_types_i18n[:credit_card] %>
@@ -24,7 +24,7 @@
           <div class='row'>
             <h6>お届け先</h6>
             <div class='container'>
-              <div class="field">
+              <div class="field input_field_kk">
                 <%= f.radio_button :address_radio_type, 1,{checked:true} %>
                 <%= f.label "ご自身の住所" %>
                 <div class='container'>
@@ -35,7 +35,7 @@
               <div class="field">
                 <%= f.radio_button :address_radio_type, 2 %>
                 <%= f.label "登録済住所から選択" %>
-                <div class='container'>
+                <div class='container input_field_kk'>
                   <div class="field">
                     <%= f.select :shipping_address_id,
                       options_for_select(@shipping_info),
@@ -49,7 +49,7 @@
                 <%= f.label "新しいお届け先" %>
                 <div class='container'>
                   <div class="field">
-                    <div class="row">
+                    <div class="row input_field_kk">
                       <div class="col-3">
                         <%= f.label "郵便番号(ハイフンなし)" %>
                       </div>
@@ -59,7 +59,7 @@
                     </div>
                   </div>
                   <div class="field">
-                    <div class="row">
+                    <div class="row input_field_kk">
                       <div class="col-3">
                         <%= f.label "住所" %>
                       </div>
@@ -69,7 +69,7 @@
                     </div>
                   </div>
                   <div class="field">
-                    <div class="row">
+                    <div class="row input_field_kk">
                       <div class="col-3">
                         <%= f.label "宛名" %>
                       </div>
