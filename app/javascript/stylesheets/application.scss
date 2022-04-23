@@ -143,6 +143,16 @@ p.footertopline{
     padding: 5px 25px;
 }
 
+.search_cards {
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+.search_cards:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
 .top_bottom_link {
  margin-top: 20px;
 }
@@ -251,6 +261,10 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 
 .br_font_kk{
   font-size: 5px;
+}
+
+.item_index_row {
+  margin-bottom: 30px;
 }
 
 // ↑國原記載##############################################
