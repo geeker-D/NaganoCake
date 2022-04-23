@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "skippr.css";
 
 // ↓國原記載##############################################
 .icon{
@@ -8,10 +9,9 @@
 
 .login_customer_disp_name{
   margin: 0px 20px 0px 20px;
-  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',
-  sans-serif;
+  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+  font-size: 14px;
 }
-
 
 .navigation_area{
   margin-top: 20px;
@@ -35,6 +35,10 @@ background-color: rgba(220, 220, 220, 1) ;
 p.footertopline{
   border-top-style: solid;
   border-width: 1px;
+}
+
+.footer_area{
+  margin-bottom: 20px;
 }
 
 .searchbar{
@@ -115,6 +119,34 @@ p.footertopline{
   padding: 0 3px;
   box-sizing: border-box;
 }
+
+.cards {
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+.cards:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
+.card_text {
+  pointer-events: none;
+  text-decoration:none;
+  color:#000000;
+}
+
+.cards::before{
+    content: "NEW !!";
+    column-rule: #ffffff;
+    background-color: #f0e68c;
+    padding: 5px 25px;
+}
+
+.top_bottom_link {
+ margin-top: 20px;
+}
+
 // ヘッダーを固定する
 // .Header {
 // position: fixed;
@@ -125,50 +157,81 @@ p.footertopline{
 // padding-bottom: 140px;
 // }
 // ヘッダー固定の際に
-// .Contents {
+
+.Contents {
+font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 // overflow: auto; /* コンテンツの表示を自動に設定（スクロール） */
-// }
+}
 
-// li.order_comp_li {
-//   display: inline-block;
-// }
-// li.order_comp_li:nth-child(odd) {
-//   -webkit-animation: horizontal1 1s ease-in-out infinite alternate;
-// }
-// li.order_comp_li:nth-child(even) {
-//   -webkit-animation: horizontal2 1s ease-in-out infinite alternate;
-// }
+.top_item_index {
+ margin-top: 40px;
+}
 
-// span.order_comp_sp {
-//   display: block;
-//   text-align: center;
-//   -webkit-animation: vertical 1s ease-in-out infinite alternate;
-// }
-// span.order_comp_sp img{
-//   width: 100px;
-//   height: auto;
-// }
-// li.order_comp_li:nth-child(1) span {
-//   -webkit-animation-duration: 1.1s;
-// }
-// li.order_comp_li:nth-child(2) span {
-//   -webkit-animation-duration: 1.3s;
-// }
-// li.order_comp_li:nth-child(3) span {
-//   -webkit-animation-duration: 1.5s;
-// }
-// @-webkit-keyframes horizontal1 {
-//   0% { -webkit-transform:translateX( -12px); }
-//   100% { -webkit-transform:translateX(  0px); }
-// }
-// @-webkit-keyframes horizontal2 {
-//   0% { -webkit-transform:translateX(  12px); }
-//   100% { -webkit-transform:translateX(  0px); }
-// }
-// @-webkit-keyframes vertical {
-//   0% { -webkit-transform:translateY(-40px); }
-//   100% { -webkit-transform:translateY(  0px); }
-// }
+.image_top {
+ background-image: url(/assets/CheeseCake.jpg);
+ background-size: cover;
+ padding-top: 60px;
+ padding-bottom: 60px;
+ padding-left: auto;
+ padding-right: auto;
+ margin: 10px;
+ text-align: center;
+ width:100%;
+ height:200px;
+ color: #ffffff;
+ position: relative;
+ z-index: 0;
+}
+
+.image_top::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  background: inherit;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.title_top {
+  text-shadow: 0 0 10px #333;
+}
+
+.top_message {
+  text-decoration: underline;
+  text-shadow: 1px 2px 3px #808080;
+}
+
+.top_submessage {
+  text-shadow: 1px 2px 3px #808080;
+}
+
+ #container_about {
+  height: 400px;
+  margin-top: 20px;
+}
+
+.image1 {
+  background-image: url(/assets/CheeseCake.jpg);
+}
+.image2 {
+  background-image: url(/assets/cookie.jpg);
+}
+.image3 {
+  background-image: url(/assets/donutIMGL5823_TP_V4.jpg);
+}
+.image4 {
+  background-image: url(/assets/ShortCake.jpg);
+}
+.image5 {
+  background-image: url(/assets/taruto.jpg);
+}
+
+.about_title{
+  text-decoration: underline;
+}
 
 // ↑國原記載##############################################
 

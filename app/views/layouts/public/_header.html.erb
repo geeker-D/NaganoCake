@@ -8,7 +8,7 @@
       </a>
       <% if customer_signed_in? %>
         <div class="login_customer_disp_name">
-          <i class="fas fa-door-open"></i><b>　～ようこそ、
+          <i class="fas fa-door-open"></i><b class='custo'>　～ようこそ、
           <%= current_customer.last_name %>
           さん！～</b>
         </div>
@@ -21,17 +21,17 @@
         <% if customer_signed_in? %>
           <li>
             <%= link_to customers_mypage_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-user-circle"></i> マイページ
+              <i class="fas fa-user-circle"></i><b>マイページ</b>
             <% end %>
           </li>
           <li>
             <%= link_to items_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-cheese"></i> 商品一覧
+              <i class="fas fa-cheese"></i><b>商品一覧</b>
             <% end %>
           </li>
           <li>
               <%= link_to cart_items_path, class: 'nav-link text-dark heaedr-link news_cart_item' do %>
-                <i class="fas fa-shopping-cart"></i> カート
+                <i class="fas fa-shopping-cart"></i><b>カート</b>
                 <% if current_customer.cart_items.exists? %>
                   <span class="news_count"><%= current_customer.cart_items.count %></span>
                 <% end %>
@@ -39,28 +39,28 @@
           </li>
           <li>
             <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-sign-in-alt"></i> ログアウト
+              <i class="fas fa-sign-in-alt"></i><b>ログアウト</b>
             <% end %>
           </li>
         <% else %>
           <li>
             <%= link_to about_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-exclamation-circle"></i> About
+              <i class="fas fa-exclamation-circle"></i><b>About</b>
             <% end %>
           </li>
           <li>
             <%= link_to items_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-cheese"></i> 商品一覧
+              <i class="fas fa-cheese"></i><b>商品一覧</b>
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_registration_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-user-plus"></i> 新規登録
+              <i class="fas fa-user-plus"></i><b>新規登録</b>
             <% end %>
           </li>
           <li>
             <%= link_to new_customer_session_path, class: 'nav-link text-dark heaedr-link' do %>
-              <i class="fas fa-sign-in-alt"></i> ログイン
+              <i class="fas fa-sign-in-alt"></i><b>ログイン</b>
             <% end %>
           </li>
         <% end %>
