@@ -1,8 +1,10 @@
 class Public::OrdersController < Public::ApplicationController
   def index
+    @orders = current_customer.orders.page(params[:page])
   end
 
   def show
+    @order = current_customer.orders.find(params[:id])
   end
 
   def new
@@ -25,11 +27,11 @@ class Public::OrdersController < Public::ApplicationController
         order_details.save
         ci.destroy
       end
+      redirect_to complete_orders_path
     else
       #エラー処理を定義
       redirect_to root_path
     end
-    redirect_to complete_orders_path
   end
 
   def order_preconfirm

@@ -1,0 +1,32 @@
+<table class="table table-bordered table-hover">
+  <thead class="table-secondary">
+    <tr>
+      <th>注文日</th>
+      <th>配送先</th>
+      <th>注文商品</th>
+      <th>支払金額</th>
+      <th>ステータス</th>
+      <th>注文詳細</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% orders.each do |order| %>
+    <tr>
+      <td><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+      <td>
+        〒<%= order.post_code %><br>
+          <%= order.address %><br>
+          <%= order.to_name %></td>
+      </td>
+      <td>
+        <% order.order_details.each do |order_detail| %>
+          <%= order_detail.item.name %><br>
+        <% end %>
+      </td>
+      <td><%= order.total_payment.to_s(:delimited) %></td>
+      <td><%= order.status_i18n %></td>
+      <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
