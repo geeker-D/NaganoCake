@@ -23,7 +23,7 @@ class Admin::CustomersController < Admin::ApplicationController
 
   def index_order
     @customer = Customer.find(params[:id])
-    @orders = @customer.orders
+    @orders = @customer.orders.page(params[:page])
   end
 
   private
