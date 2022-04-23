@@ -2,7 +2,7 @@
   <div class='row justify-content-center' style = "margin-top: 50px;">
     <div class="col-md-10">
       <div class='row'>
-        <h6>ショッピングカート</h6>
+        <h4 class="content_title_kk"><b>ショッピングカート</b></h4>
         <% if current_customer.cart_items.exists? %>
         <div class='col text-right d-inline-block btn_link' >
           <%=link_to "カートを空にする", destroy_all_cart_items_path,method: :delete, class: 'btn btn-sm btn-danger' %>
