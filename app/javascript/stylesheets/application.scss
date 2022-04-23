@@ -316,14 +316,14 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 }
 
 
-.btnchangeradius{
+.btnchangeradius1{
     /*ボタンの形状*/
   display:inline-block;
-    background: #333;
-    color: #fff;
+    background: #f5deb3;
+    color: #696969;
     padding: 10px 20px;
 
-  border: 5px double white;
+  border: 1px solid #555;
     text-decoration: none;
     outline: none;
     /*アニメーションの指定*/
@@ -331,9 +331,29 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 }
 
 /*hoverした際の角丸のアニメーション*/
-.btnchangeradius:hover{
-  background:#666;
-  border-radius:20px; 
+.btnchangeradius1:hover{
+  background:#fffacd;
+  border-radius:20px;
+}
+
+.btnchangeradius2{
+    /*ボタンの形状*/
+  display:inline-block;
+    background: #fffacd;
+    color: #696969;
+    padding: 10px 20px;
+
+  // border: 1px solid #555;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition:.3s ease-out;
+}
+
+/*hoverした際の角丸のアニメーション*/
+.btnchangeradius2:hover{
+  background:#f5deb3;
+  border-radius:20px;
 }
 
 
