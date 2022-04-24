@@ -60,17 +60,21 @@ class Public::OrdersController < Public::ApplicationController
       end
 
     when address_radio_type_shippingMT
-      ship_address = ShippingAddress.find(params[:order][:shipping_address_id])
-      if ship_address.post_code.length == 7
-        @post_code = ship_address.post_code
-        @address = ship_address.address
-        @to_name = ship_address.to_name
+      if params[:order][:shipping_address_id].blank?
+        redirect_to request.referer, notice: "登録済の配送先住所が存在しません。ご自身の住所を選択、もしくは入力欄にて配送先を入力ください。"
       else
-        redirect_to request.referer, notice: "郵便番号は7桁でご指定ください。(マイページの編集画面で変更ください。)"
+        ship_address = ShippingAddress.find(params[:order][:shipping_address_id])
+        if ship_address.post_code.length == 7
+          @post_code = ship_address.post_code
+          @address = ship_address.address
+          @to_name = ship_address.to_name
+        else
+          redirect_to request.referer, notice: "郵便番号は7桁でご指定ください。(マイページの編集画面で変更ください。)"
+        end
       end
 
     when address_radio_type_newInput
-      if params[:order][:input_post_code].empty? || params[:order][:input_address].empty? || params[:order][:input_to_name].empty?
+      if params[:order][:input_post_code].blank? || params[:order][:input_address].blank? || params[:order][:input_to_name].blank?
         redirect_to request.referer, notice: "郵便番号、住所、宛名のいずれかの入力が確認できません。再度入力ください。"
       else
         if params[:order][:input_post_code].length == 7
