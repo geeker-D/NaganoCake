@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="badge badge-warning">
-    <h3><%= @customer.last_name %><%= @customer.first_name %>さんの注文履歴</h3>
+  <div>
+    <h4 class="admin_customer_index_order"><%= @customer.last_name %><%= @customer.first_name %>さんの注文履歴</h4>
   </div>
    <div class="row">
     <div class="col-sm-12 col-md-8 mx-auto">
       <table class="table table-hover">
-        <thead>
+        <thead class="thead-light">
           <tr class="table-secondary">
            <th>購入日時</th>
            <th>注文個数</th>
@@ -24,6 +24,7 @@
         </tbody>
         <% end %>
       </table>
+      <%= paginate @orders %>
     </div>
   </div>
 </div>

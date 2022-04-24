@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="badge badge-warning">
-   <h3>ジャンル編集</h3>
+  <div>
+    <h4 class="genre_edit">ジャンル編集</h4>
   </div>
   <div class="genre-form mt-5 mb-5">
     <%= form_with model:@genre, url:admin_genre_path(@genre) do |f| %>
-    <%= f.label :name, "ジャンル名" %>
-    <%= f.text_field :name %>
-     　<%= f.submit "変更を保存", class: 'btn btn-outline-success btn-lg' %>
+      <%= f.label :name, "ジャンル名" %>
+      <%= f.text_field :name %>
+      <%= f.submit "変更を保存", class: 'btn btn-outline-success btn-lg' %>
     <% end %>
   </div>
