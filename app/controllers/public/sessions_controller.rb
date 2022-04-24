@@ -33,7 +33,7 @@ class Public::SessionsController < Devise::SessionsController
   def confirm_defection
     customer = Customer.find_by_email(params[:customer][:email])
     return if !customer
-    if customer.valid_password?(params[:customer][:password]) && customer.is_deleted == true
+    if customer.valid_password?(params[:customer][:password]) && customer.is_deleted == "退会"
       redirect_to new_customer_registration_path
     end
   end

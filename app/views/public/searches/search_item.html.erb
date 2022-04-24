@@ -5,7 +5,7 @@
     </div>
     <div class = 'col-md-9 offset-1'>
       <div class='row item_index_row'>
-        <h4 class="content_title_kk"><b>商品検索結果</b></h4><h4>（検索条件：<%= @item_name %>）</h4>
+        <h4 class="content_title_kk"><b>商品検索結果</b></h4><span style = "font-size:20px;">（全<%= @search_result.count %>件/  検索条件：<%= @item_name %>）</span>
       </div>
         <div class="row">
           <%= render 'item_index', items: @search_result %>
