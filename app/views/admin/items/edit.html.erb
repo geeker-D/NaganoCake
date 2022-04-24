@@ -1,47 +1,42 @@
 <div class="container">
-  <div>
-  　<h4 class="item_edit">商品編集</h4>
-  </div>
-    <div class="row">
-     <div class="col-sm-12 col-md-8 mx-auto">
+  <div class="row">
+    <div class="text-error">
+        <%= render 'layouts/public/errors', obj: @item %>
+    </div>
+    <div class="col-md-7 mx-auto">
+       <h4 class="item_edit mt-2 mb-3">商品編集</h4>
        <%= form_with model:@item, url:admin_item_path(@item.id) do |f| %>
-
-          <div class="form_group">
-            <%= f.label :image, "商品画像" %>
-            <%= f.file_field :image,  accept: 'image/*' %>
-          </div>
-
-          <div class="form_group pt-2 pb-2">
-            <%= f.label :name, "商品名" %>
-            <%= f.text_field :name, size: "40" %>
-          </div>
-
-          <div class="form_group pt-2 pb-2">
-            <%= f.label :summary, "商品説明" %>
-            <%= f.text_area :summary, size: "40x8" %>
-          </div>
-
-          <div class="form_group pt-2 pb-2">
-            <%= f.label :genre_id, 'ジャンル' %>
-            <%= f.collection_select :genre_id, @genres,:id,:name %>
-          </div>
-
-          <div class="form_group pt-2 pb-2">
-            <%= f.label :price_non_tax, "税抜価格" %>
-            <%= f.text_field :price_non_tax, size: "40" %>円
-          </div>
-
-          <div class="form_botton pt-2 pb-2">
-            <%= f.label :is_active, "販売ステータス" %>
-             <%= f.radio_button :is_active, :"販売中" %>
-            <%= f.label :is_active, "販売中" %>
-             <%= f.radio_button :is_active, :"販売停止中" %>
-            <%= f.label :is_active, "販売停止中" %>
-          </div>
-        <div class="text_center">
-         <%= f.submit "変更を保存" ,class: "btn btn-outline-success btn-lg" %>
+        <div class="form_group col-8">
+          <%= f.label :image, "商品画像" %></br>
+          <%= f.file_field :image,  accept: 'image/*' %>
+        </div>
+        <div class="form_group col-8 pt-2 pb-2">
+          <%= f.label :name, "商品名" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form_group col-8 pt-2 pb-2">
+          <%= f.label :summary, "商品説明" %>
+          <%= f.text_area :summary, size: "40x8" , class: "form-control" %>
+        </div>
+        <div class="form_group col-8 pt-2 pb-2">
+          <%= f.label :genre_id, 'ジャンル' %></br>
+          <%= f.collection_select :genre_id, @genres,:id,:name %>
+        </div>
+        <div class="form_group col-8 pt-2 pb-2">
+          <%= f.label :price_non_tax, "税抜価格(¥)" %>
+          <%= f.text_field :price_non_tax, class: "form-control" %>
+        </div>
+        <div class="form_botton col-8 pt-2 pb-2">
+          <%= f.label :is_active, "販売ステータス" %>
+          <%= f.radio_button :is_active, :"販売中" %>
+          <%= f.label :is_active, "販売中" %>
+          <%= f.radio_button :is_active, :"販売停止中" %>
+          <%= f.label :is_active, "販売停止中" %>
+        </div>
+        <div class="text_center col-8">
+         <%= f.submit "変更を保存" ,class: "btn btn-outline-dark font-weight-bold form-button-common btn-lg" %>
          <% end %>
        </div>
-     </div>
+    </div>
   </div>
 </div>

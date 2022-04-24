@@ -5,6 +5,7 @@ class Admin::OrderDetailsController < Admin::ApplicationController
     @order_detail = OrderDetail.find(params[:id])
     @order_details = @order.order_details
     @order_detail.update(order_detail_params)
+    flash[:notice] = "更新しました"
     if @order_detail.product_status == "making"
       @order.update(status: "making")
       redirect_back(fallback_location: root_path)

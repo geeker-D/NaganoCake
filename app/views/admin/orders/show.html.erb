@@ -1,10 +1,8 @@
 
 <div class="container">
-  <div>
-    <h4 class="admin_order_show">注文履歴詳細</h3>
-  </div>
   <div class="row">
-    <div class="col-sm-12 col-md-8">
+    <div class="col-sm-12 col-md-10 mx-auto">
+      <h4 class="admin_order_show mt-2">注文履歴詳細</h3>
       <%= form_with model:@order, url:admin_order_path(@order.id),local:true do |f| %>
       <table class="table table-borderless">
         <thead>
@@ -27,7 +25,7 @@
           <tr>
             <th>注文ステータス</th>
             <td><%= f.select :status, Order.statuses.keys.map {|stat| [I18n.t("enums.order.status.#{stat}"), stat]} %>
-                <%= f.submit "更新", class: "btn btn-outline-success" %>
+                <%= f.submit "更新", class: "btn btn-outline-dark font-weight-bold form-button-common" %>
             </td>
           </tr>
         </thead>
@@ -57,7 +55,7 @@
             <td>
               <%= form_with model:[@order,order_detail],url:admin_order_order_detail_path(@order,order_detail),methodo: :patch do |f| %>
                 <%= f.select :product_status, OrderDetail.product_statuses.keys.map {|stat| [I18n.t("enums.order_detail.product_status.#{stat}"), stat]} %>
-                <%= f.submit "更新" ,class: "btn btn-outline-success" %>
+                <%= f.submit "更新" ,class: "btn btn-outline-dark font-weight-bold form-button-common" %>
               <% end %>
             </td>
           </tr>
@@ -65,8 +63,6 @@
         <% end %>
       </table>
     </div>
-  </div>
-  <div class="row">
     <div class="col-md-3">
       <table>
         <tr>

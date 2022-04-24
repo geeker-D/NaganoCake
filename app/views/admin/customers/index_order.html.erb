@@ -1,29 +1,27 @@
 <div class="container">
-  <div>
-    <h4 class="admin_customer_index_order"><%= @customer.last_name %><%= @customer.first_name %>さんの注文履歴</h4>
-  </div>
    <div class="row">
     <div class="col-sm-12 col-md-8 mx-auto">
-      <table class="table table-hover">
-        <thead class="thead-light">
-          <tr class="table-secondary">
-           <th>購入日時</th>
-           <th>注文個数</th>
-           <th>注文ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @orders.each do |order| %>
-          <tr>
-           <th><%= link_to admin_order_path(order.id) do %>
-                <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></th>
-               <% end %>
-           <th><%= order.order_details.sum(:amount) %></th>
-           <th><%= order.status_i18n %></th>
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
+      <h4 class="admin_customer_index_order mb-4"><%= @customer.last_name %><%= @customer.first_name %>さんの注文履歴</h4>
+        <table class="table table-hover">
+          <thead class="thead-light">
+            <tr class="table-secondary">
+             <th>購入日時</th>
+             <th>注文個数</th>
+             <th>注文ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+            <tr>
+             <th><%= link_to admin_order_path(order.id) do %>
+                  <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></th>
+                 <% end %>
+             <th><%= order.order_details.sum(:amount) %></th>
+             <th><%= order.status_i18n %></th>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
       <%= paginate @orders %>
     </div>
   </div>
