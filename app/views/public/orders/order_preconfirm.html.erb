@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row justify-content-center' style = "margin-top: 50px;">
-    <div class="col-md-12">
+    <div class="col-11">
       <div class='row'>
         <h4 class="content_title_kk"><b>注文情報確認</b></h4>
       </div>
@@ -63,36 +63,42 @@
           </table>
         </div>
       </div>
-      <div class='row input_field_kk'>
-        <div class='col-1'>
-          <h6><b>支払方法</b><h6>
-        </div>
-        <div class='col-3'>
-          <%= Order.payment_types_i18n[:"#{@payment_type_key}"] %>
-        </div>
-      </div>
-      <div class='row input_field_kk'>
-        <div class='col-1'>
-          <h6><b>お届け先</b><h6>
-        </div>
-        <div class='col-10'>
-          <%= "〒"+@post_code+" "+@address %><br>
-          <%= @to_name %>
+      <div class = "row">
+        <div class= "col-8">
+          <div class='row input_field_kk'>
+            <div class='col-2'>
+              <h6 class=order_preconfirm_smalltitle><b>支払方法</b><h6>
+            </div>
+            <div class='col-4'>
+              <%= Order.payment_types_i18n[:"#{@payment_type_key}"] %>
+            </div>
+          </div>
+          <div class='row input_field_kk'>
+            <div class='col-2'>
+              <h6 class=order_preconfirm_smalltitle><b>お届け先</b><h6>
+            </div>
+            <div class='col-10'>
+              <%= "〒"+@post_code+" "+@address %><br>
+              <%= @to_name %>
+            </div>
+          </div>
         </div>
       </div>
       <div class='row'>
+        <div class="col-12">
         <%= form_with model:@order,url: orders_path, method: :post, local:true do |f| %>
-        <div class='container'>
+        <!--<div class='container'>-->
           <div class="actions">
             <%= f.hidden_field :payment_type, :value => @payment_type_key, class: "form-control" %>
             <%= f.hidden_field :post_code, :value => @post_code, class: "form-control" %>
             <%= f.hidden_field :address, :value => @address, class: "form-control" %>
             <%= f.hidden_field :to_name, :value => @to_name, class: "form-control" %>
             <%= f.hidden_field :shipping_fee, :value =>  @shipping_fee, class: "form-control" %>
-            <%= f.submit "注文を確定する",class: 'btn btn-outline-dark font-weight-bold form-button-common btn-block' %>
+            <%= f.submit "注文を確定する",class: 'btn btn-outline-dark d-grid gap-2 col-3 mx-auto font-weight-bold form-button-common btn-block' %>
           </div>
-        </div>
+        <!--</div>-->
         <% end %>
+        </div>
       </div>
     </div>
   </div>
