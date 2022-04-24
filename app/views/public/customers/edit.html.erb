@@ -1,15 +1,17 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8">
+  <div class="row" style = "margin-top: 50px;">
+    <div class="col-md-8 offset-md-1">
       <div class="text-error">
         <%= render 'layouts/public/errors', obj: @customer %>
       </div>
-      <div class="badge badge-warning ">
-        <h3>会員情報編集</h3>
+      <div class="ml-5">
+        <h4 class="font-weight-bold"><u>会員情報編集</u></h4>
       </div>
+    </div>
+    <div class="col-md-8">
       <%= form_with model: @customer, url: customer_path(@customer), method: :patch do |f| %>
       <div class="row mt-3">
-        <%= f.label :"名前", class:"col-md-4 col-form-label text-md-right fw-bold" %>
+        <%= f.label :"名前", class:"col-md-4 text-md-right" %>
         <div class="col-md-3">
           <%= f.text_field :last_name, autofocus: true, class:"form-control" %>
         </div>
@@ -18,7 +20,7 @@
         </div>
       </div>
       <div class="row mt-3">
-        <%= f.label :"フリガナ", class:"col-md-4 col-form-label text-md-right fw-bold" %>
+        <%= f.label :"フリガナ", class:"col-md-4 text-md-right fw-bold" %>
         <div class="col-md-3">
           <%= f.text_field :last_name_kana, autofocus: true, class:"form-control" %>
         </div>
@@ -27,25 +29,25 @@
         </div>
       </div>
       <div class="row mt-3">
-        <%= f.label :"郵便番号", class:"col-md-4 col-form-label text-md-right fw-bold" %>
+        <%= f.label :"郵便番号", class:"col-md-4 text-md-right fw-bold" %>
         <div class="col-md-3">
           <%= f.text_field :post_code, autofocus: true, class:"form-control" %>
         </div>
       </div>
       <div class="row mt-3">
-        <%= f.label :"住所", class:"col-md-4 col-form-label text-md-right fw-bold" %>
+        <%= f.label :"住所", class:"col-md-4 text-md-right fw-bold" %>
         <div class="col-md-8">
           <%= f.text_field :address, autofocus: true, class:"form-control" %>
         </div>
       </div>
       <div class="row mt-3">
-        <%= f.label :"電話番号", class:"col-md-4 col-form-label text-md-right fw-bold" %>
+        <%= f.label :"電話番号", class:"col-md-4 text-md-right fw-bold" %>
         <div class="col-md-3">
           <%= f.text_field :phone_number, autofocus: true, class:"form-control" %>
         </div>
       </div>
       <div class="row mt-3">
-        <%= f.label :"メールアドレス", class:"col-md-4 col-form-label text-md-right fw-bold" %>
+        <%= f.label :"メールアドレス", class:"col-md-4 text-md-right fw-bold" %>
         <div class="col-md-6">
           <%= f.text_field :email, autofocus: true, class:"form-control" %>
         </div>

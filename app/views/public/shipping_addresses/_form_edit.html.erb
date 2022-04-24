@@ -1,5 +1,5 @@
 <%= form_with model: shipping_address, url: shipping_address_path(shipping_address), method: :patch do |f| %>
-    <div class="form-group row mt-5">
+    <div class="form-group row mt-3">
       <%= f.label :"郵便番号(ハイフンなし)", class:"col-md-4 col-form-label text-md-right fw-bold" %>
       <div class="col-md-2 px-md-0">
         <%= f.text_field :post_code, autofocus: true, placeholder: "0000000", class:"form-control" %>
