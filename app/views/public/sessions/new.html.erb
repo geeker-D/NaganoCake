@@ -2,27 +2,27 @@
   <div class='row' style = "margin-top: 50px;">
     <div class="col-10">
       <div class='row'>
-        <h4>ログイン</h4>
+        <h4 class= "content_title_kk"><b>ログイン</b></h4>
       </div>
       <h6>会員の方はこちらからログイン</h6>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
-            <div class='row'>
+            <div class='row input_field_kk'>
               <span class="col-2">
                 <%= f.label :メールアドレス %>
               </span>
-              <span class="col-8">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <span class="col-4">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
               </span>
             </div>
           </div>
           <div class="field">
-            <div class='row'>
+            <div class='row input_field_kk'>
               <span class="col-2">
                 <%= f.label :パスワード %>
               </span>
-              <span class="col-8">
-                <%= f.password_field :password, autocomplete: "current-password" %>
+              <span class="col-4">
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
               </span>
             </div>
           </div>

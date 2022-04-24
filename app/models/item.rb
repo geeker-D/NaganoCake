@@ -30,4 +30,9 @@ class Item < ApplicationRecord
     (image.attached?) ? image : 'no_image.jpg'
   end
 
+  def self.search_item_fnc(item_name)
+    search_result = Item.where('name LIKE ?', "%#{item_name}%")
+    return search_result
+  end
+
 end

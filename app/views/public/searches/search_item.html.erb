@@ -1,2 +1,15 @@
-<h1>Public::Searches#search_item</h1>
-<p>Find me in app/views/public/searches/search_item.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center' style = "margin-top: 50px;">
+    <div class = "col-md-2">
+      <%= render '/public/items/genre', genres: @genres %>
+    </div>
+    <div class = 'col-md-9 offset-1'>
+      <div class='row item_index_row'>
+        <h4 class="content_title_kk"><b>商品検索結果</b></h4><h4>（検索条件：<%= @item_name %>）</h4>
+      </div>
+        <div class="row">
+          <%= render 'item_index', items: @search_result %>
+        </div>
+    </div>
+  </div>
+</div>

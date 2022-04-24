@@ -3,6 +3,12 @@
 @import "skippr.css";
 
 // ↓國原記載##############################################
+#notice {
+  text-align: center;
+  background-color: #e0ffff;
+  font-weight: bold;
+}
+
 .icon{
   margin: 5px;
 }
@@ -143,6 +149,16 @@ p.footertopline{
     padding: 5px 25px;
 }
 
+.search_cards {
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+.search_cards:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
 .top_bottom_link {
  margin-top: 20px;
 }
@@ -170,14 +186,14 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 .image_top {
  background-image: url(/assets/CheeseCake.jpg);
  background-size: cover;
- padding-top: 60px;
+ padding-top: 90px;
  padding-bottom: 60px;
  padding-left: auto;
  padding-right: auto;
  margin: 10px;
  text-align: center;
  width:100%;
- height:200px;
+ height:250px;
  color: #ffffff;
  position: relative;
  z-index: 0;
@@ -229,8 +245,137 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
   background-image: url(/assets/taruto.jpg);
 }
 
-.about_title{
+.content_title_kk {
   text-decoration: underline;
+}
+
+.input_field_kk {
+  margin-bottom: 10px;
+}
+
+.cart_image_kk {
+  margin-right: 10px;
+}
+
+.table_price_area {
+  margin-top: 30px;
+}
+
+.br_font_kk{
+  font-size: 10px;
+}
+
+.br_font_kk{
+  font-size: 5px;
+}
+
+.item_index_row {
+  margin-bottom: 30px;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+.form-button-common {
+  border: 2px solid #555;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+.btn-style{
+  /*アニメーションの起点とするためrelativeを指定*/
+  position: relative;
+  overflow: hidden;
+    /*ボタンの形状*/
+  text-decoration: none;
+  display: inline-block;
+    height: 45px;
+    border: 2px solid #555;/* ボーダーの色と太さ */
+    padding: 10px 30px;
+    text-align: center;
+    outline: none;
+    /*アニメーションの指定*/
+    transition: ease .2s;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+/*ボタン内spanの形状*/
+.btn-style span {
+  position: relative;
+  z-index: 3;/*z-indexの数値をあげて文字を背景よりも手前に表示*/
+  color:#333;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+.btn-style:hover span{
+  color:#fff;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+/*== 背景が流れる（上から下） */
+.bgtop:before {
+  content: '';
+    /*絶対配置で位置を指定*/
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: 2;
+    /*色や形状*/
+  background:  #333;/*背景色*/
+  width: 100%;
+  height: 0;
+    /*アニメーション*/
+  transition:.3s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+/*hoverした際の形状*/
+.bgtop:hover:before{
+   height: 100%;
+   background-color: #333;
+}
+
+
+.btnchangeradius1{
+    /*ボタンの形状*/
+  display:inline-block;
+    background: #f5deb3;
+    color: #696969;
+    padding: 10px 20px;
+
+  border: 1px solid #555;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition:.3s ease-out;
+}
+
+/*hoverした際の角丸のアニメーション*/
+.btnchangeradius1:hover{
+  background:#fffacd;
+  border-radius:20px;
+}
+
+.btnchangeradius2{
+    /*ボタンの形状*/
+  display:inline-block;
+    background: #fffacd;
+    color: #696969;
+    padding: 10px 20px;
+
+  // border: 1px solid #555;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition:.3s ease-out;
+}
+
+/*hoverした際の角丸のアニメーション*/
+.btnchangeradius2:hover{
+  background:#f5deb3;
+  border-radius:20px;
+}
+
+
+.sample {
+  margin-top: 20px;
 }
 
 // ↑國原記載##############################################
