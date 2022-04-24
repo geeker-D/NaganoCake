@@ -23,7 +23,7 @@ class Public::CustomersController < Public::ApplicationController
 
   def defection
     @customer = current_customer
-    @customer.update(is_deleted: true)
+    @customer.update(is_deleted: false)
     reset_session
     redirect_to root_path, notice: "退会処理を実行しました"
   end

@@ -13,7 +13,7 @@ class Customer < ApplicationRecord
   validates :post_code, {length: {is: 7} }
   validates :phone_number, length: { minimum: 10, maximum: 11 }
 
-  enum is_deleted: { 有効: true, 退会: false }
+  enum is_deleted: { 有効: false, 退会: true }
 
 
 end
