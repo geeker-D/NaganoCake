@@ -1,14 +1,14 @@
 <table class="table table-bordered table-hover" style="text-align: center;" >
-  <thead class="table-secondary">
+  <thead class="thead-light">
     <tr>
-      <th class=>ジャンル検索</th>
+      <th>ジャンル検索</th>
     </tr>
   </thead>
   <tbody>
     <% genres.each do |genre| %>
       <tr>
-        <td class:"genre-list-item">
-          <%= genre.name %>
+        <td class="genre-list-item">
+          <%= link_to genre.name, search_genre_searches_path(id: genre.id) %>
         </td>
       </tr>
     <% end %>

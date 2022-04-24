@@ -1,2 +1,15 @@
-<h1>Public::Searches#search_genre</h1>
-<p>Find me in app/views/public/searches/search_genre.html.erb</p>
+<div class = "container">
+  <div class = "row" style = "margin-top: 50px;">
+    <div class = "col-md-2">
+      <%= render 'public/items/genre', genres: @genres %>
+    </div>
+    <div class = 'col-md-9 offset-md-1'>
+      <div class="row">
+        <h4 class="font-weight-bold"><u><%= @genre.name %>一覧<span style = "font-size:20px;">（全<%= @items.count %>件）</span></u></h4>
+        <%= render 'public/items/index', item: @item %>
+      </div>
+      <div style = "text-align: center;">
+        <%= paginate @items %></div>
+    </div>
+  </div>
+</di

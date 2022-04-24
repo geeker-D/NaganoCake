@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="badge badge-warning">
-    <h3>マイページ</h3>
+  <div class="row" style = "margin-top: 50px;">
+    <h4 class="font-weight-bold"><u>マイページ</u></h4>
   </div>
-  <div class="row">
-    <div class="col-md-4 mt-4 form-inline text-center">
-      <h4 class="font-weight-bold">登録情報</h4>
-      <div class="ml-5">
+  <div class="row mt-3">
+    <div class="col-md-4 form-inline">
+      <h5>登録情報</h5>
+      <div class="ml-4">
         <%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-success" %>
       </div>
     </div>
@@ -16,16 +16,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 mt-4 form-inline text-center">
-      <h4 class="font-weight-bold">配送先</h4>
-      <div class="ml-5">
+    <div class="col-md-4 mt-4 form-inline">
+      <h5>配送先</h5>
+      <div class="ml-4">
         <%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-primary" %>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 mt-4 form-inline text-center">
-      <h4 class="font-weight-bold">注文履歴</h4>
+    <div class="col-md-4 mt-4 form-inline">
+      <h5>注文履歴</h5>
       <div class="ml-4">
         <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
       </div>

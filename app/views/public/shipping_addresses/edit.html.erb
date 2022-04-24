@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-7">
+  <div class="row justify-content-center" style = "margin-top: 50px;">
+    <div class="col-md-8">
       <div class="text-error">
         <%= render 'layouts/public/errors', obj: @shipping_address %>
       </div>
-      <div class="badge badge-warning">
-        <h3>配送先編集</h3>
+      <div>
+        <h4 class="font-weight-bold"><u>配送先編集</u></h4>
       </div>
       <div>
         <%= render 'form_edit', shipping_address: @shipping_address %>
