@@ -1,16 +1,43 @@
-<table class="table table-bordered table-hover" style="text-align: center;" >
-  <thead class="thead-light">
-    <tr>
-      <b><th>ジャンル検索</th></b>
-    </tr>
-  </thead>
-  <tbody>
-    <% genres.each do |genre| %>
-      <tr>
-        <td class="genre-list-item">
-          <b><%= link_to genre.name, search_genre_searches_path(id: genre.id) %></b>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="accordion-menu sample">
+  <li>
+    <div class="dropdownlink"><i class="fa fa-road" aria-hidden="true"></i>ジャンル検索
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <ul class="submenuItems sample">
+      <% genres.each do |genre| %>
+      <li><b><%= link_to genre.name, search_genre_searches_path(id: genre.id), class: "sample_a" %></b></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>
+<script>
+$(function() {
+  var Accordion = function(el, multiple) {
+    this.el = el || {};
+    // more then one submenu open?
+    this.multiple = multiple || false;
+
+    var dropdownlink = this.el.find('.dropdownlink');
+    dropdownlink.on('click',
+                    { el: this.el, multiple: this.multiple },
+                    this.dropdown);
+  };
+
+  Accordion.prototype.dropdown = function(e) {
+    var $el = e.data.el,
+        $this = $(this),
+        //this is the ul.submenuItems
+        $next = $this.next();
+
+    $next.slideToggle();
+    $this.parent().toggleClass('open');
+
+    if(!e.data.multiple) {
+      //show only one menu at the same time
+      $el.find('.submenuItems').not($next).slideUp().parent().removeClass('open');
+    }
+  }
+
+  var accordion = new Accordion($('.accordion-menu'), false);
+})
+</script>
