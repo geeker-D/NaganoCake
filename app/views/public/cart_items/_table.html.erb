@@ -27,7 +27,10 @@
               { selected: cart_item.amount},
               { class: "form-control mr-2"}
             %>
-            <%= f.submit '変更', name: nil, class: "btn btn-sm btn-success" %>
+            <!--%= f.submit '変更', name: nil, class: "btn btn-sm d-grid gap-2 col-2 mx-auto btn-style bgtop" do %>-->
+            <!--  <span><b>変更</b></span>-->
+            <!--% end %>-->
+            <b><%= f.submit '変更', name: nil, class: "btn btn-sm btn-outline-dark font-weight-bold form-button-common" %></b>
           <% end %>
         <td>
           <p class="br_font_kk"></p><%= number_to_currency((cart_item.item.price_non_tax * 1.1).floor * cart_item.amount, unit: "¥", format: "%u %n", precision: 0) %>

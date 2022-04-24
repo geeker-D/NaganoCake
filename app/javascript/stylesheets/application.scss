@@ -3,6 +3,12 @@
 @import "skippr.css";
 
 // ↓國原記載##############################################
+#notice {
+  text-align: center;
+  background-color: #e0ffff;
+  font-weight: bold;
+}
+
 .icon{
   margin: 5px;
 }
@@ -267,13 +273,20 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
   margin-bottom: 30px;
 }
 
+/*#########大元のボタンスタイルは変更しないでください##### */
+.form-button-common {
+  border: 2px solid #555;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
 .btn-style{
-    /*アニメーションの起点とするためrelativeを指定*/
-    position: relative;
+  /*アニメーションの起点とするためrelativeを指定*/
+  position: relative;
   overflow: hidden;
     /*ボタンの形状*/
   text-decoration: none;
   display: inline-block;
+    height: 45px;
     border: 2px solid #555;/* ボーダーの色と太さ */
     padding: 10px 30px;
     text-align: center;
@@ -282,6 +295,7 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
     transition: ease .2s;
 }
 
+/*#########大元のボタンスタイルは変更しないでください##### */
 /*ボタン内spanの形状*/
 .btn-style span {
   position: relative;
@@ -289,10 +303,12 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
   color:#333;
 }
 
+/*#########大元のボタンスタイルは変更しないでください##### */
 .btn-style:hover span{
   color:#fff;
 }
 
+/*#########大元のボタンスタイルは変更しないでください##### */
 /*== 背景が流れる（上から下） */
 .bgtop:before {
   content: '';
@@ -309,6 +325,7 @@ font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
   transition:.3s cubic-bezier(0.8, 0, 0.2, 1) 0s;
 }
 
+/*#########大元のボタンスタイルは変更しないでください##### */
 /*hoverした際の形状*/
 .bgtop:hover:before{
    height: 100%;
