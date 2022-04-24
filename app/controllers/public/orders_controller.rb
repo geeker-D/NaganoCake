@@ -51,22 +51,38 @@ class Public::OrdersController < Public::ApplicationController
 
     case params[:order][:address_radio_type]
     when address_radio_type_current_customer then
-      @post_code = current_customer.post_code
-      @address = current_customer.address
-      @to_name = current_customer.last_name + current_customer.first_name
+      if current_customer.post_code.length == 7
+        @post_code = current_customer.post_code
+        @address = current_customer.address
+        @to_name = current_customer.last_name + current_customer.first_name
+      else
+        redirect_to request.referer, notice: "郵便番号は7桁でご指定ください。。(マイページの編集画面で変更ください。)"
+      end
 
     when address_radio_type_shippingMT
       ship_address = ShippingAddress.find(params[:order][:shipping_address_id])
-      @post_code = ship_address.post_code
-      @address = ship_address.address
-      @to_name = ship_address.to_name
+      if ship_address.post_code.length == 7
+        @post_code = ship_address.post_code
+        @address = ship_address.address
+        @to_name = ship_address.to_name
+      else
+        redirect_to request.referer, notice: "郵便番号は7桁でご指定ください。(マイページの編集画面で変更ください。)"
+      end
 
     when address_radio_type_newInput
-      @post_code = params[:order][:input_post_code]
-      @address = params[:order][:input_address]
-      @to_name = params[:order][:input_to_name]
+      if params[:order][:input_post_code].empty? || params[:order][:input_address].empty? || params[:order][:input_to_name].empty?
+        redirect_to request.referer, notice: "郵便番号、住所、宛名のいずれかの入力が確認できません。再度入力ください。"
+      else
+        if params[:order][:input_post_code].length == 7
+          @post_code = params[:order][:input_post_code]
+          @address = params[:order][:input_address]
+          @to_name = params[:order][:input_to_name]
+        else
+          redirect_to request.referer, notice: "郵便番号は7桁で再度入力ください。"
+        end
+      end
     else
-      #エラーメッセージを返す処理を定義予定
+      redirect_to request.referer, notice: "処理を正常に完了することができません。サポートにお問い合わせください。"
     end
   end
 
