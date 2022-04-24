@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row" style = "margin-top: 50px;">
     <div class="col-md-2 offset-md-1">
-    <h4 class="font-weight-bold"><u>商品一覧</u></h4>
+      <h4 class="font-weight-bold"><u>商品一覧</u></h4>
     </div>
   </div>
   <div class="row mt-3 justify-content-center">
@@ -9,9 +9,9 @@
       <%= render 'index', items: @items %>
       <%= paginate @items %>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
       <%= link_to new_admin_item_path do %>
-        <button type="button" class="btn btn-success btn-circle btn-lg" style="font-weight: bold; border-radius: 50%;">＋</button>
+        <div type="button" class="btn btn-outline-dark font-weight-bold form-button-common btn-circle" style="border-radius: 50%;">＋</div>
       <% end %>
     </div>
   </div>

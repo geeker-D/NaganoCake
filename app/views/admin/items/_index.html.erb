@@ -17,7 +17,7 @@
           <%= item.name %>
         <% end %>
       </th>
-      <th><%= item.price_non_tax %></th>
+      <th>¥ <%= item.price_non_tax.to_s(:delimited) %></th>
       <th><%= item.genre.name %></th>
       <th><%= item.is_active %></th>
     </tr>
