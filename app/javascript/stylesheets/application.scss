@@ -164,16 +164,20 @@ p.footertopline{
  margin-top: 20px;
 }
 
-// ヘッダーを固定する
-// .Header {
-// position: fixed;
-// top: 0;
-// left: 0;
-// width: 100%;
-// height: 140px;
-// padding-bottom: 140px;
-// }
-// ヘッダー固定の際に
+.Header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 140px;
+padding-bottom: 140px;
+z-index:999;
+}
+
+body {
+    padding-top: 130px; /* ヘッダーの後ろに要素が隠れないようにするため */
+}
+
 
 .Contents {
 font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
