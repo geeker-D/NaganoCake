@@ -1,4 +1,5 @@
 class Public::OrdersController < Public::ApplicationController
+
   def index
     @orders = current_customer.orders.page(params[:page]).per(8).order(id: "DESC")
   end
@@ -29,28 +30,30 @@ class Public::OrdersController < Public::ApplicationController
       end
       redirect_to complete_orders_path
     else
-      #エラー処理を定義
-      redirect_to root_path
+      redirect_to controller: 'cart_items', action: 'index'
     end
   end
 
-  def order_preconfirm
-    #ラジオボタンの選択を判断するためのフラグを定義
-    address_radio_type_current_customer = "1"
-    address_radio_type_shippingMT = "2"
-    address_radio_type_newInput = "3"
 
-    @cart_items = current_customer.cart_items
+  def order_preconfirm
+    ##############以下注文確定処理に必要なフォーム送信データ#############
     @payment_type_key = params[:order][:payment_type]
-    @payment_type_value = Order.payment_types[:"#{@payment_type_key}"]
     @shipping_fee = 800
+
+    ##############以下注文確認画面の表示用データ#############
+    @cart_items = current_customer.cart_items
     @total_payment_no_shipfee = CartItem.total_payment_no_shipfee(@cart_items)
     @total_payment = @total_payment_no_shipfee + @shipping_fee
-
     @order = Order.new
 
+    ##############以下注文確定処理に必要なフォーム送信データ#############
+    #住所のラジオボタン選択を判断するためのフラグを定義
+    radio_type_current_customer = "1"
+    radio_type_registered_shipping_address = "2"
+    radio_type_newInput = "3"
+
     case params[:order][:address_radio_type]
-    when address_radio_type_current_customer then
+    when radio_type_current_customer then
       if current_customer.post_code.length == 7
         @post_code = current_customer.post_code
         @address = current_customer.address
@@ -58,8 +61,7 @@ class Public::OrdersController < Public::ApplicationController
       else
         redirect_to request.referer, notice: "郵便番号は7桁でご指定ください。。(マイページの編集画面で変更ください。)"
       end
-
-    when address_radio_type_shippingMT
+    when radio_type_registered_shipping_address then
       if params[:order][:shipping_address_id].blank?
         redirect_to request.referer, notice: "登録済の配送先住所が存在しません。ご自身の住所を選択、もしくは入力欄にて配送先を入力ください。"
       else
@@ -72,8 +74,7 @@ class Public::OrdersController < Public::ApplicationController
           redirect_to request.referer, notice: "郵便番号は7桁でご指定ください。(マイページの編集画面で変更ください。)"
         end
       end
-
-    when address_radio_type_newInput
+    when radio_type_newInput then
       if params[:order][:input_post_code].blank? || params[:order][:input_address].blank? || params[:order][:input_to_name].blank?
         redirect_to request.referer, notice: "郵便番号、住所、宛名のいずれかの入力が確認できません。再度入力ください。"
       else
@@ -88,14 +89,18 @@ class Public::OrdersController < Public::ApplicationController
     else
       redirect_to request.referer, notice: "処理を正常に完了することができません。サポートにお問い合わせください。"
     end
+
   end
+
 
   def complete
   end
+
 
   private
   def order_params
     params.require(:order).permit(:payment_type, :post_code, :address, :to_name, :shipping_fee)
   end
+
 
 end
