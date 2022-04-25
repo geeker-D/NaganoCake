@@ -1,13 +1,13 @@
 <div class='container'>
   <div class='row justify-content-center' style = "margin-top: 50px;">
-    <div class="col-md-12">
+    <div class="col-md-10">
       <div class='row'>
         <h4 class="content_title_kk"><b>注文情報入力</b></h4>
       </div>
       <%= form_with model:@order,url: order_preconfirm_orders_path, local:true do |f| %>
       <div class='container'>
         <div class='row'>
-          <h6>支払い方法</h6>
+          <h6 class=order_preconfirm_smalltitle><b>支払い方法</b></h6>
           <div class='container input_field_kk'>
             <div class="field">
               <%= f.radio_button :payment_type, Order.payment_types.key(0),{checked:true} %>
@@ -22,7 +22,7 @@
         </div>
         <div class='container'>
           <div class='row'>
-            <h6>お届け先</h6>
+            <h6 class=order_preconfirm_smalltitle><b>お届け先</b></h6>
             <div class='container'>
               <div class="field input_field_kk">
                 <%= f.radio_button :address_radio_type, 1,{checked:true} %>
@@ -84,8 +84,8 @@
           </div>
         </div>
         <div class='container'>
-          <div class="actions col-md-2">
-            <b><%= f.submit "確認画面へ進む",class: 'btn btn-outline-dark font-weight-bold form-button-common btn-block' %></b>
+          <div class="actions col-12">
+            <b><%= f.submit "確認画面へ進む",class: 'btn btn-outline-dark d-grid gap-2 col-3 font-weight-bold form-button-common btn-block' %></b>
           </div>
         </div>
       </div>

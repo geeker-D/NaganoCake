@@ -1,9 +1,9 @@
 <div class = "container">
   <div class = "row" style = "margin-top: 50px;">
-    <div class = "col-md-2">
+    <div class = "col-3">
       <%= render 'public/items/genre', genres: @genres %>
     </div>
-    <div class = 'col-md-9 offset-md-1'>
+    <div class = 'col-9'>
       <div class="row">
         <div class="col-12 text-center">
           <div class= "image_top">
@@ -11,10 +11,10 @@
               <h3>
                 <b class="top_message">ようこそ、"NaganoCake"へ！</b>
               </h3>
-              <h6 class="top-submessage">
+              <b><h6 class="top-submessage">
                 このサイトは、ケーキ販売のECサイトになります。<br>
                 会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。
-              </h5>
+              </h6></b>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
         </div>
         <div class="container">
           <div class="text-right top_bottom_link">
-            <%= link_to "全ての商品を見る＞　", items_path %>
+            <b><%= link_to "全ての商品を見る＞　", items_path %></b>
           </div>
         </div>
       </div>

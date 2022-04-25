@@ -37,7 +37,7 @@ class Public::CartItemsController < Public::ApplicationController
         redirect_to request.referer, notice: "数量の更新が反映されませんでした。再度お試しください。"
       end
     else
-      redirect_to request.referer, notice: "数量は10個以内でご指定ください。"
+      redirect_to request.referer, notice: "1商品あたりの数量は10個以内でご指定ください。"
     end
   end
 
