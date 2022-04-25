@@ -28,7 +28,6 @@ class Public::CustomersController < Public::ApplicationController
     redirect_to root_path, notice: "退会処理を実行しました"
   end
 
-
   private
   def customer_params
     params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :post_code, :address, :phone_number, :email, :is_deleted)
