@@ -10,26 +10,7 @@
         </div>
         <% end %>
       </div>
-      <%= render 'table', cart_items: @cart_items %>
-      <div class='row'>
-        <div class="col-9">
-          <%=link_to "買い物を続ける", root_path,  class: 'btn btn-sm btn-outline-dark font-weight-bold form-button-common'%>
-        </div>
-        <% if current_customer.cart_items.exists? %>
-        <div class="col-3">
-          <table class='table'>
-            <tbody>
-              <tr>
-                <td><b>合計金額</b></td>
-                <td>
-                  <b><%= number_to_currency(@total_payment_no_shipfee, unit: "¥", format: "%u %n", precision: 0) %></b>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <% end %>
-      </div>
+      <%= render 'table', {cart_items: @cart_items, total_payment_no_shipfee: @total_payment_no_shipfee} %>
       <% if current_customer.cart_items.exists? %>
       <div class='row'>
         <div class="col-12 text-center">
