@@ -12,8 +12,4 @@ class Order < ApplicationRecord
   validates :customer_id, :payment_type, :post_code, :address, :to_name, :shipping_fee, :total_payment,  presence: true
   validates :post_code, {length: {is: 7} }
 
-  def number_to_currency(price)
-    "#{(price).to_s(:delimited, delimiter: ',')}円"
-  end
-
 end
