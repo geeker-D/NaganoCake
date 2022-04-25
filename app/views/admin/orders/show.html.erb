@@ -38,7 +38,7 @@
       </table>
     </div>
     <div class="col-3 mt-5">
-      <table>
+      <table class="table table-bordered table-hover">
         <tr>
           <th><b>商品合計</b></th>
           <td><b><%= (@order.total_payment - @order.shipping_fee).to_s(:delimited, delimiter: ',')%>円</b></td>
