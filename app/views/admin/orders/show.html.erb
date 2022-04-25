@@ -49,9 +49,9 @@
         <tbody>
           <tr>
             <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.price %></td>
+            <td><%= order_detail.price.to_s(:delimited, delimiter: ',') %></td>
             <td><%= order_detail.amount %></td>
-            <td><%= (order_detail.price).floor*order_detail.amount %></td>
+            <td><%= ((order_detail.price).floor*order_detail.amount).to_s(:delimited, delimiter: ',') %></td>
             <td>
               <%= form_with model:[@order,order_detail],url:admin_order_order_detail_path(@order,order_detail),methodo: :patch do |f| %>
                 <%= f.select :product_status, OrderDetail.product_statuses.keys.map {|stat| [I18n.t("enums.order_detail.product_status.#{stat}"), stat]} %>
@@ -63,19 +63,19 @@
         <% end %>
       </table>
     </div>
-    <div class="col-md-3">
+    <div class="col-3 mt-5">
       <table>
         <tr>
-          <th>商品合計</th>
-          <td><%= @order.total_payment - @order.shipping_fee %>円</td>
+          <th><b>商品合計</b></th>
+          <td><b><%= (@order.total_payment - @order.shipping_fee).to_s(:delimited, delimiter: ',')%>円</b></td>
         </tr>
         <tr>
-          <th>送料</th>
-          <td><%= @order.shipping_fee %>円</td>
+          <th><b>送料</b></th>
+          <td><b><%= @order.shipping_fee.to_s(:delimited, delimiter: ',')%>円</b></td>
         </tr>
         <tr>
-          <th>ご請求金額</th>
-          <td><%= @order.total_payment %>円</td>
+          <th><b>ご請求金額</b></th>
+          <td><b><%= @order.total_payment.to_s(:delimited, delimiter: ',')%>円</b></td>
         </tr>
       </table>
     </div>

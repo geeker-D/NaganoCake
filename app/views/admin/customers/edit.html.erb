@@ -1,58 +1,58 @@
 <div class="container">
   <div class="row">
-    <div class="text-error">
-        <%= render 'layouts/public/errors', obj: @customer %>
-    </div>
     <div class="col-sm-9 mx-auto">
-      <h4 class="admin-customer_edit"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
-      <%= form_with model:@customer,url: admin_customer_path(@customer.id), method: :patch do |f| %>
-      <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th>会員ID</th>
-            <td><%= @customer.id %></td>
-          </tr>
-          <tr>
-            <th>氏名</th>
-            <td><%= f.text_field :last_name, class: "last_name_field form_control" %> <%= f.text_field :first_name, class: "form_control" %></td>
-          </tr>
-          <tr>
-            <th>フリガナ</th>
-            <td><%= f.text_field :last_name_kana, class: "last_name_kana_field form_control" %> <%= f.text_field :first_name_kana, class: "form_control" %></td>
-          </tr>
-          <tr>
-            <th>郵便番号</th>
-            <td><%= f.text_field :post_code, class: "form_control" %></td>
-          </tr>
-          <tr>
-            <th>住所</th>
-            <td><%= f.text_field :address, size: "60x2" , class: "form_control" %></td>
-          </tr>
-          <tr>
-            <th>電話番号</th>
-            <td><%= f.text_field :phone_number, class: "form_control" %></td>
-          </tr>
-          <tr>
-            <th>メールアドレス</th>
-            <td><%= f.email_field :email, class: "form_control" %></td>
-          </tr>
-          <tr>
-            <th>会員ステータス</th>
-            <div class="customer_field">
-              <td>
-                <%= f.radio_button :is_deleted, :"有効" %>
-                <%= f.label :is_deleted, "有効" %>
-                <%= f.radio_button :is_deleted, :"退会" %>
-                <%= f.label :is_deleted, "退会" %>
-              </td>
-            </div>
-          </tr>
-        </thead>
-      </table>
-    <div class="row">
-      <div class="btn-group col-3 pl-10 mx-auto">
-      <%= f.submit "変更を保存", class: "btn btn-outline-dark font-weight-bold form-button-common" %>
-      <% end %>
+      <div class="text-error">
+        <%= render 'layouts/public/errors', obj: @customer %>
+      </div>
+        <h4 class="admin-customer_edit"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
+        <%= form_with model:@customer,url: admin_customer_path(@customer.id), method: :patch do |f| %>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th>会員ID</th>
+              <td><%= @customer.id %></td>
+            </tr>
+            <tr>
+              <th>氏名</th>
+              <td><%= f.text_field :last_name, class: "last_name_field form_control" %> <%= f.text_field :first_name, class: "form_control" %></td>
+            </tr>
+            <tr>
+              <th>フリガナ</th>
+              <td><%= f.text_field :last_name_kana, class: "last_name_kana_field form_control" %> <%= f.text_field :first_name_kana, class: "form_control" %></td>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <td><%= f.text_field :post_code, class: "form_control" %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= f.text_field :address, size: "60x2" , class: "form_control" %></td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><%= f.text_field :phone_number, class: "form_control" %></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= f.email_field :email, class: "form_control" %></td>
+            </tr>
+            <tr>
+              <th>会員ステータス</th>
+              <div class="customer_field">
+                <td>
+                  <%= f.radio_button :is_deleted, :"有効" %>
+                  <%= f.label :is_deleted, "有効" %>
+                  <%= f.radio_button :is_deleted, :"退会" %>
+                  <%= f.label :is_deleted, "退会" %>
+                </td>
+              </div>
+            </tr>
+          </thead>
+        </table>
+      <div class="row">
+        <div class="btn-group col-3 pl-10 mx-auto">
+        <%= f.submit "変更を保存", class: "btn btn-outline-dark font-weight-bold form-button-common" %>
+        <% end %>
       </div>
     </div>
   </div>
