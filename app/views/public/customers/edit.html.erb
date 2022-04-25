@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row" style = "margin-top: 50px;">
+  <div class="row justify-content-center" style = "margin-top: 50px;">
     <div class="col-md-8 offset-md-1">
       <div class="text-error">
         <%= render 'layouts/public/errors', obj: @customer %>
@@ -54,8 +54,8 @@
       </div>
       <div class="row mt-5">
         <div class="col-8 offset-md-3 form-inline">
-          <%= f.submit "編集内容を保存", class: "btn btn-primary text-light mr-5" %>
-          <%= link_to "退会する", unsubscribe_customer_path, class: "btn btn-danger text-light" %>
+          <%= f.submit "編集内容を保存", class: "btn btn-outline-dark font-weight-bold form-button-common mr-5" %>
+          <%= link_to "退会する", unsubscribe_customer_path, class: "btn btn-outline-dark font-weight-bold form-button-common" %>
         </div>
       </div>
       <% end %>

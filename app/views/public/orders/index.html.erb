@@ -1,13 +1,16 @@
 <div class="container">
   <div class="row justify-content-center" style = "margin-top: 50px;">
     <div class="col-md-12">
-      <div>
+      <div style = "margin-left: 100px;">
         <h4 class="font-weight-bold"><u>注文履歴一覧</u></h4>
       </div>
-      <div class="row mt-3">
+      <div class="row justify-content-center mt-3">
         <div>
           <%= render 'index', orders: @orders %>
         </div>
+      </div>
+      <div class="col-md-3" style = "margin-left: 100px;">
+        <%= paginate @orders %>
       </div>
     </div>
   </div>
