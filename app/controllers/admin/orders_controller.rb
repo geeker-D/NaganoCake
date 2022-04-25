@@ -9,6 +9,7 @@ class Admin::OrdersController < Admin::ApplicationController
       @order = Order.find(params[:id])
       @order_details = @order.order_details
       @order.update(order_params)
+      flash[:notice] = "更新しました"
     if @order.status == "confirm_deposit"
       @order_details.update_all(product_status: "wait_making")
       redirect_to admin_order_path(@order)

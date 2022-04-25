@@ -9,12 +9,12 @@
     <div class = "col-md-4 offset-md-1" >
       <h3 style="margin-bottom: 30px; font-weight: bold;"><u><%= @item.name %></u></h3>
       <p style="margin-bottom: 50px; font-size: 20px;"><%= @item.summary %></p>
-      <p style="font-size: 25px;">¥<%= @item.with_tax_price %><span style="font-size:15px;">（税込）</span></p>
+      <p style="font-size: 25px;">¥ <%= @item.with_tax_price.to_s(:delimited) %><span style="font-size:15px;">（税込）</span></p>
       <%= form_with model: @cart_item do |f| %>
         <p><%= f.select :amount, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10]], {:prompt => "個数選択"} %>
-        <span style="margin-left: 20px;"><%= f.submit "カートに入れる", class:"btn btn-primary" %></span>
+        <span style="margin-left: 20px;"><%= f.submit "カートに入れる", class:"btn btn-outline-dark font-weight-bold form-button-common" %></span>
         </p>
-        <%= f.hidden_field :item_id, :value => @item.id%>
+        <%= f.hidden_field :item_id, :value => @item.id %>
       <% end %>
     </div>
   </div>

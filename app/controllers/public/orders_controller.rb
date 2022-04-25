@@ -1,6 +1,6 @@
 class Public::OrdersController < Public::ApplicationController
   def index
-    @orders = current_customer.orders.page(params[:page])
+    @orders = current_customer.orders.page(params[:page]).per(8).order(id: "DESC")
   end
 
   def show
