@@ -1,12 +1,12 @@
 <div class = "container">
   <div class = "row" style = "margin-top: 50px;">
-    <div class = "col-md-2">
+    <div class = "col-md-3">
       <%= render 'genre', genres: @genres %>
     </div>
-    <div class = 'col-md-3 offset-md-1'>
+    <div class = 'col-md-3'>
       <%= image_tag @item.get_item_image,size:"300x300" %>
     </div>
-    <div class = "col-md-4 offset-md-1" >
+    <div class = "col-md-5 offset-md-1" >
       <h3 style="margin-bottom: 30px; font-weight: bold;"><u><%= @item.name %></u></h3>
       <p style="margin-bottom: 50px; font-size: 20px;"><%= @item.summary %></p>
       <p style="font-size: 25px;">¥ <%= @item.with_tax_price.to_s(:delimited) %><span style="font-size:15px;">（税込）</span></p>
