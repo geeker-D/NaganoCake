@@ -63,7 +63,7 @@ class Public::OrdersController < Public::ApplicationController
       end
     when radio_type_registered_shipping_address then
       if params[:order][:shipping_address_id].blank?
-        redirect_to request.referer, notice: "登録済の配送先住所が存在しません。ご自身の住所を選択、もしくは入力欄にて配送先を入力ください。"
+        redirect_to request.referer, notice: "登録済の配送先住所が存在しません。ご自身の住所を選択、もしくは新しいお届け先をご入力ください。"
       else
         ship_address = ShippingAddress.find(params[:order][:shipping_address_id])
         if ship_address.post_code.length == 7

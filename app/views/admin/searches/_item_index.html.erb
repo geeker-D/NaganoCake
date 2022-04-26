@@ -2,7 +2,7 @@
   <% items.each do |item| %>
   <div class="card search_cards item_index_row" style="float:left; margin-right:20px; text-align: center;">
     <div class="card-body" style="background-color:#faebd7;">
-      <%= link_to item_path(item.id) do %>
+      <%= link_to admin_item_path(item.id) do %>
         <p><%= image_tag item.get_item_image, size: '100x100', class: "card-img-top" %></p>
         <div class="card_text">
           <b><%= item.name %></b><br>

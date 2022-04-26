@@ -14,7 +14,7 @@ class Item < ApplicationRecord
   enum is_active: { 販売中: true, 販売停止中: false }
 
  #引数に取得件数を渡し、作成日で降順ソートした商品を返却する
-  scope :get_items_sort_of_CreateDate, -> (number_of_display) {order("created_at": :desc).limit(number_of_display.to_i)}
+  scope :get_items_sort_of_CreateDate, -> (number_of_display) {where(is_active: true).order("created_at": :desc).limit(number_of_display.to_i)}
 
   #######インスタンスメソッド######
 
@@ -38,7 +38,7 @@ class Item < ApplicationRecord
   #######クラスメソッド######
 
   def self.search_item_fnc(item_name)
-    search_result = Item.where('name LIKE ?', "%#{item_name}%")
+    search_result = Item.where(is_active: true).where('name LIKE ?', "%#{item_name}%")
     return search_result
   end
 
