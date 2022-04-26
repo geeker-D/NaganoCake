@@ -25,7 +25,7 @@ class Public::ShippingAddressesController < Public::ApplicationController
       redirect_to shipping_addresses_path, notice: "配送先を変更しました"
     else
       @shipping_address = ShippingAddress.new
-      @shipping_addresses = ShippingAddress.all
+      @shipping_addresses = current_customer.shipping_addresses
       render 'index'
     end
   end
