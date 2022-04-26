@@ -18,7 +18,7 @@
             <tbody class="scroll-tb">
               <% @cart_items.each do |cart_item| %>
                 <tr>
-                  <td class="item_name">
+                  <td>
                     <%= image_tag cart_item.item.get_item_image, size: '60x40', class: "cart_image_kk" %>
                     <%= cart_item.item.name %>
                   </td>
