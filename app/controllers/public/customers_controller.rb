@@ -4,9 +4,6 @@ class Public::CustomersController < Public::ApplicationController
 
   def edit
     @customer = current_customer
-    if @customer != current_customer
-      redirect_to customers_mypage_path(current_customer)
-    end
   end
 
   def update
@@ -23,6 +20,7 @@ class Public::CustomersController < Public::ApplicationController
 
   def defection
     @customer = current_customer
+    # is_deletedカラムをtrueに変更して削除フラグを立てる
     @customer.update(is_deleted: true)
     reset_session
     redirect_to root_path, notice: "退会処理を実行しました"
