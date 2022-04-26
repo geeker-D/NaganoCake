@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root :to =>'homes#top'
     get "/about"=>'homes#about'
 
-    devise_for :customers,skip: [:passwords]
+    devise_for :customers,skip: [:passwords], controllers: { registrations: 'public/registrations'}
     get "customers/mypage"=>'customers#show'
     resources :customers, only: [:edit, :update] do
       get :unsubscribe, on: :member
