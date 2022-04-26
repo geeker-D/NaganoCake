@@ -12,4 +12,12 @@ class Order < ApplicationRecord
   validates :customer_id, :payment_type, :post_code, :address, :to_name, :shipping_fee, :total_payment,  presence: true
   validates :post_code, {length: {is: 7} }
   
+  def with_tax_price
+    (price_non_tax * 1.1).floor
+  end
+  
+  def total_item_order
+    total_payment - shipping_fee
+  end
+  
 end

@@ -5,7 +5,7 @@
     </div>
     <div class = 'col-9'>
       <div class="row">
-        <h4 class="font-weight-bold"><u>商品一覧<span style = "font-size:20px;">（全<%= @items.count %>件）</span></u></h4>
+        <h4 class="font-weight-bold"><u>商品一覧<span class = "tax_included">（全<%= @items.count %>件）</span></u></h4>
         <%= render 'index', item: @item %>
       </div>
       <div style = "text-align: center;">

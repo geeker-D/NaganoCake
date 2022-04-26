@@ -1,27 +1,27 @@
 <table class="table table-borderless">
   <tr>
-    <th style="font-size: 30px; font-weight: bold;">商品名</th>
-    <td style="font-size: 30px; font-weight: bold; text-align:left;"><%= item.name %></td>
+    <th class="item_name_column">商品名</th>
+    <td class="item_name"><u><%= item.name %></u></td>
   </tr>
   <tr>
-    <th>商品説明</th>
-    <td style="text-align:left;"><%= item.summary %></td>
+    <th class="item_column">商品説明</th>
+    <td class="item_info"><%= item.summary %></td>
   </tr>
   <tr>
-    <th>ジャンル</th>
-    <td style="text-align:left;"><%= item.genre.name %></td>
+    <th class="item_column">ジャンル</th>
+    <td class="item_info"><%= item.genre.name %></td>
   </tr>
   <tr>
-    <th>
+    <th class="item_column">
       税抜価格</br>
       （税込価格）
     </th>
-    <td class="align-middle" style="text-align:left;">
+    <td class="item_info align-middle">
       ¥ <%= item.price_non_tax.to_s(:delimited) %>（¥ <%= item.with_tax_price.to_s(:delimited) %>）
     </td>
   </tr>
   <tr>
-    <th>販売ステータス</th>
-    <td style="text-align:left;"><%= item.is_active %></td>
+    <th class="item_column">販売ステータス</th>
+    <td class="item_info"><%= item.is_active %></td>
   </tr>
 </table>
