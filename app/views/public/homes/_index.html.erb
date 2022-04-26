@@ -1,7 +1,7 @@
 <div>
   <% items.each do |item| %>
   <div class="card cards" style="float:left; margin-right:20px; text-align: center;">
-    <div class="card-body" style="background-color:#faebd7;" data-toggle="tooltip" data-placement="top" title="商品説明：<%= item.summary %>">
+    <div class="card-body" style="background-color:#faebd7;">
       <%= link_to item_path(item.id) do %>
         <%= image_tag item.get_item_image, size: '150x120', class: "card-img-top" %>
         <div class="card_text">
@@ -13,4 +13,3 @@
   </div>
   <% end %>
 </div>
-<script>$('[data-toggle="tooltip"]').tooltip()</script>

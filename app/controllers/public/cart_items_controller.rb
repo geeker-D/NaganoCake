@@ -7,18 +7,18 @@ class Public::CartItemsController < Public::ApplicationController
   end
 
   def create
-    if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
-      @cart_item_now = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
-      @cart_item_now.amount += params[:cart_item][:amount].to_i
-      if @cart_item_now.amount <= 10 && params[:cart_item][:amount].to_i != 0
-        @cart_item_now.update(amount: @cart_item_now.amount)
+    if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]) # カート内にアイテムが存在した時の処理
+      @cart_item_now = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]) # 同じアイテムを探す
+      @cart_item_now.amount += params[:cart_item][:amount].to_i # カートにある数量と選択した数量を足す
+      if @cart_item_now.amount <= 10 && params[:cart_item][:amount].to_i != 0 # カート内のアイテムが10個以内かつ数量を選択した時の処理
+        @cart_item_now.update(amount: @cart_item_now.amount) # アイテムの数量を更新
         redirect_to cart_items_path, notice: "#{@cart_item_now.item.name}をカートに追加しました。"
-      elsif @cart_item_now.amount > 10
+      elsif @cart_item_now.amount > 10 # カート内のアイテムが10個より多い時の処理
         redirect_to request.referer, notice: "#{@cart_item_now.item.name}の合計が10個以内になるように選択してください"
-      else
+      else　# アイテム数量を選択していない時の処理
         redirect_to request.referer, notice: "個数を選択してください"
       end
-    else
+    else # カート内にアイテムが存在しない時の処理
       @cart_item = CartItem.new(cart_item_update_params)
       @cart_item.customer_id = current_customer.id
       if @cart_item.save
