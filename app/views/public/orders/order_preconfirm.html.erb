@@ -1,13 +1,13 @@
-<div class='container'>
-  <div class='row justify-content-center' style = "margin-top: 50px;">
+<div class="container">
+  <div class="row justify-content-center" style = "margin-top: 50px;">
     <div class="col-11">
-      <div class='row'>
+      <div class="row">
         <h4 class="content_title_kk"><b>注文情報確認</b></h4>
       </div>
-      <div class='row input_field_kk'>
-        <div class='col-8'>
-          <table class='table table-hover'>
-            <thead class='thead-light scroll-th'>
+      <div class="row input_field_kk">
+        <div class="col-8">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-light scroll-th">
               <tr>
                 <th>商品名</th>
                 <th>単価(税込)</th>
@@ -15,10 +15,10 @@
                 <th>小計</th>
               </tr>
             </thead>
-            <tbody class='scroll-tb'>
+            <tbody class="scroll-tb">
               <% @cart_items.each do |cart_item| %>
                 <tr>
-                  <td class="item_name">
+                  <td>
                     <%= image_tag cart_item.item.get_item_image, size: '60x40', class: "cart_image_kk" %>
                     <%= cart_item.item.name %>
                   </td>
@@ -36,11 +36,8 @@
             </tbody>
           </table>
         </div>
-        <div class=col-1>
-          <!--テーブル間のスペース-->
-        </div>
-        <div class=col-3>
-          <table class='table table-hover'>
+        <div class="col-3 offset-1">
+          <table class='table table-bordered'>
             <thead class='thead-light'>
               <tr>
                 <th>送料</th>
@@ -86,8 +83,7 @@
       </div>
       <div class='row'>
         <div class="col-12">
-        <%= form_with model:@order,url: orders_path, method: :post, local:true do |f| %>
-        <!--<div class='container'>-->
+          <%= form_with model:@order,url: orders_path, method: :post, local:true do |f| %>
           <div class="actions">
             <%= f.hidden_field :payment_type, :value => @payment_type_key, class: "form-control" %>
             <%= f.hidden_field :post_code, :value => @post_code, class: "form-control" %>
@@ -96,8 +92,7 @@
             <%= f.hidden_field :shipping_fee, :value =>  @shipping_fee, class: "form-control" %>
             <%= f.submit "注文を確定する",class: 'btn btn-outline-dark d-grid gap-2 col-3 mx-auto font-weight-bold form-button-common btn-block' %>
           </div>
-        <!--</div>-->
-        <% end %>
+          <% end %>
         </div>
       </div>
     </div>

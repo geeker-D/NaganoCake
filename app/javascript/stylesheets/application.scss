@@ -10,6 +10,13 @@
   font-weight: bold;
 }
 
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: 150px;
+  height: 120px;
+}
+
 .icon{
   margin: 5px;
 }
@@ -138,9 +145,11 @@ p.footertopline{
 }
 
 .card_text {
+  margin: auto;
   pointer-events: none;
   text-decoration:none;
   color:#000000;
+  width: 120px;
 }
 
 .cards::before{
@@ -518,8 +527,10 @@ a.sample_a {
     color: #fff;
   }
 }
-// ジャンル検索サイドメニュー
-
+// ↑ジャンル検索サイドメニュー
+// .item_price {
+//   margin-top: 10px;
+// }
 
 
 // ↑國原記載##############################################
@@ -604,14 +615,14 @@ a.sample_a {
 
 .item_name_column {
   font-size: 30px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
   font-weight: bold;
   text-align: center;
 }
 
 .item_name {
   font-size: 30px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
   font-weight: bold;
   text-align: left;
 }
@@ -630,7 +641,7 @@ a.sample_a {
 }
 
 .amount_select {
-  display: flex; 
+  display: flex;
   justify-content: left;
 }
 
@@ -644,7 +655,7 @@ a.sample_a {
 
 .label {
   font-weight: bold;
-  display: flex; 
+  display: flex;
   justify-content: right;
   align-items: center;
 }

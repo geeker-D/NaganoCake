@@ -1,5 +1,6 @@
 <div class='container'>
   <div class='row justify-content-center' style = "margin-top: 50px;">
+    <%= render 'layouts/public/errors', obj: @cart_item %>
     <div class="col-10">
       <div class='row'>
         <h4 class="content_title_kk"><b>ショッピングカート</b></h4>
@@ -9,29 +10,7 @@
         </div>
         <% end %>
       </div>
-      <%= render 'table', cart_items: @cart_items %>
-      <div class='row'>
-        <div class="col-9">
-          <!--%=link_to root_path,  class: 'btn btn-sm d-grid gap-2 col-3 mx-auto btn-style bgtop' do %>-->
-          <!--  <span><b>買い物を続ける</b></span>-->
-          <!--% end %>-->
-          <%=link_to "買い物を続ける", root_path,  class: 'btn btn-sm btn-outline-dark font-weight-bold form-button-common'%>
-        </div>
-        <% if current_customer.cart_items.exists? %>
-        <div class="col-3">
-          <table class='table'>
-            <tbody>
-              <tr>
-                <td><b>合計金額</b></td>
-                <td>
-                  <b><%= number_to_currency(@total_payment_no_shipfee, unit: "¥", format: "%u %n", precision: 0) %></b>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <% end %>
-      </div>
+      <%= render 'table', {cart_items: @cart_items, total_payment_no_shipfee: @total_payment_no_shipfee} %>
       <% if current_customer.cart_items.exists? %>
       <div class='row'>
         <div class="col-12 text-center">
