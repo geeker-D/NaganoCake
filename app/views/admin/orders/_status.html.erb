@@ -1,0 +1,32 @@
+<div class="col-6">
+  <div class="order_detail_status">
+    <%= form_with model:order, url:admin_order_path(order.id) do |f| %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>購入者</th>
+          <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+        </tr>
+        <tr>
+          <th>注文日</th>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <td><%= order.address %></td>
+        </tr>
+        <tr>
+          <th>支払方法</th>
+          <td><%= order.payment_type_i18n %></td>
+        </tr>
+        <tr>
+          <th>注文ステータス</th>
+          <td><%= f.select :status, Order.statuses.keys.map {|stat| [I18n.t("enums.order.status.#{stat}"), stat]} %>
+              <%= f.submit "更新", class: "btn btn-outline-dark font-weight-bold form-button-common" %>
+          </td>
+        </tr>
+      </thead>
+    </table>
+    <% end %>
+  </div>
+</div>

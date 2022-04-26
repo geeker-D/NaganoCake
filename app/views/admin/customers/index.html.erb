@@ -1,5 +1,5 @@
 <div class="container">
-   <div class="row">
+  <div class="row">
     <div class="col-sm-12 col-md-8 mx-auto">
       <h4 class="customer-index mb-4">会員一覧</h4>
       <table class="table table-hover">
@@ -14,12 +14,12 @@
         <tbody>
         <% @customers.each do |customer| %>
           <tr>
-           <th><%= customer.id %></th>
-           <th><%= link_to admin_customer_path(customer.id) do %>
-               <%= customer.last_name %><%= customer.first_name %></th>
-               <% end %>
-           <th><%= customer.email %></th>
-           <th><%= customer.is_deleted %></th>
+            <th><%= customer.id %></th>
+            <th><%= link_to admin_customer_path(customer.id) do %>
+                <%= customer.last_name %><%= customer.first_name %></th>
+                <% end %>
+            <th><%= customer.email %></th>
+            <th><%= customer.is_deleted %></th>
           </tr>
         </tbody>
         <% end %>
