@@ -24,9 +24,9 @@
           <tbody>
             <tr>
               <td><%= order_detail.item.name %></td>
-              <td><%= order_detail.price.to_s(:delimited, delimiter: ',') %></td>
+              <td>¥ <%= order_detail.price.to_s(:delimited, delimiter: ',') %></td>
               <td><%= order_detail.amount %></td>
-              <td><%= ((order_detail.price).floor*order_detail.amount).to_s(:delimited, delimiter: ',') %></td>
+              <td>¥ <%= ((order_detail.price).floor*order_detail.amount).to_s(:delimited, delimiter: ',') %></td>
               <td>
                 <%= form_with model:[@order,order_detail],url:admin_order_order_detail_path(@order,order_detail),remote: :true do |f| %>
                   <%= f.select :product_status, OrderDetail.product_statuses.keys.map {|stat| [I18n.t("enums.order_detail.product_status.#{stat}"), stat]} %>
@@ -43,15 +43,15 @@
           <thead class= "thead-light">
             <tr>
               <th><b>商品合計</b></th>
-              <td><b><%= (@order.total_payment - @order.shipping_fee).to_s(:delimited, delimiter: ',')%>円</b></td>
+              <td><b>¥ <%= (@order.total_payment - @order.shipping_fee).to_s(:delimited, delimiter: ',')%></b></td>
             </tr>
             <tr>
               <th><b>送料</b></th>
-              <td><b><%= @order.shipping_fee.to_s(:delimited, delimiter: ',')%>円</b></td>
+              <td><b>¥ <%= @order.shipping_fee.to_s(:delimited, delimiter: ',')%></b></td>
             </tr>
             <tr>
               <th><b>ご請求金額</b></th>
-              <td><b><%= @order.total_payment.to_s(:delimited, delimiter: ',')%>円</b></td>
+              <td><b>¥ <%= @order.total_payment.to_s(:delimited, delimiter: ',')%></b></td>
             </tr>
           </thead>
         </table>
