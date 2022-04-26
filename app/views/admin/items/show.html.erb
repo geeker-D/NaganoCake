@@ -1,12 +1,12 @@
 <div class="container">
-  <div style = "margin-top: 50px;">
-    <h4 class="font-weight-bold" style = "margin-left: 50px;"><u>商品詳細</u></h4>
+  <div style="margin-top: 50px;">
+    <h4 class="font-weight-bold" style="margin-left: 100px;" ><u>商品詳細</u></h4>
   </div>
   <div class="row mt-5">
-    <div class="col-md-3 ml-5">
+    <div class="col-md-3 offset-md-1">
       <%= image_tag @item.get_item_image, size:"350x350" %>
     </div>
-    <div class="col-md-6 offset-md-1" style="text-align: center;">
+    <div class="col-md-7 offset-md-1" style="text-align: center;">
       <%= render 'show', item: @item %>
       <%= link_to edit_admin_item_path(@item) do %>
         <button type="button" class="btn btn-outline-dark font-weight-bold form-button-common">編集する</button>

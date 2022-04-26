@@ -596,3 +596,59 @@ a.sample_a {
 .admin_item_edit {
   margin-left: 180px;
 }
+
+// ↓安部記載##########################
+.tax_included {
+  font-size: 15px;
+}
+
+.item_name_column {
+  font-size: 30px;
+  margin-bottom: 30px; 
+  font-weight: bold;
+  text-align: center;
+}
+
+.item_name {
+  font-size: 30px;
+  margin-bottom: 30px; 
+  font-weight: bold;
+  text-align: left;
+}
+
+
+.item_column {
+  margin-bottom: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.item_info {
+  margin-bottom: 50px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.amount_select {
+  display: flex; 
+  justify-content: left;
+}
+
+.cart_in_button {
+  margin-left: 20px;
+}
+
+.plus_button {
+  color: black;
+}
+
+.label {
+  font-weight: bold;
+  display: flex; 
+  justify-content: right;
+  align-items: center;
+}
+
+.paginate_order {
+  margin-left: 100px;
+}
