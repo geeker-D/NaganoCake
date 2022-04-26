@@ -1,57 +1,61 @@
 <div class="container">
   <div class="row">
     <div class="col-12 mx-auto">
-      <h4 class="admin_order_show mt-2">注文履歴詳細</h3>
+      <h4 class="admin_order_show mt-2 content_title_kk">注文履歴詳細</h3>
       <div id="order">
         <%= render 'admin/orders/status',order: @order %>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-8">
-      <table class="table table-hover">
-        <thead>
-          <tr class="table-secondary">
-            <th>商品名</th>
-            <th>単価(税込)</th>
-            <th>数量</th>
-            <th>小計</th>
-            <th>製作ステータス</th>
-          </tr>
-        </thead>
-        <% @order_details.each do |order_detail| %>
-        <tbody>
-          <tr>
-            <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.price.to_s(:delimited, delimiter: ',') %></td>
-            <td><%= order_detail.amount %></td>
-            <td><%= ((order_detail.price).floor*order_detail.amount).to_s(:delimited, delimiter: ',') %></td>
-            <td>
-              <%= form_with model:[@order,order_detail],url:admin_order_order_detail_path(@order,order_detail),remote: :true do |f| %>
-                <%= f.select :product_status, OrderDetail.product_statuses.keys.map {|stat| [I18n.t("enums.order_detail.product_status.#{stat}"), stat]} %>
-                <%= f.submit "更新" ,class: "btn btn-outline-dark font-weight-bold form-button-common" %>
-              <% end %>
-            </td>
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
-    </div>
-    <div class="col-3 mt-5">
-      <table class="table table-bordered table-hover">
-        <tr>
-          <th><b>商品合計</b></th>
-          <td><b><%= (@order.total_payment - @order.shipping_fee).to_s(:delimited, delimiter: ',')%>円</b></td>
-        </tr>
-        <tr>
-          <th><b>送料</b></th>
-          <td><b><%= @order.shipping_fee.to_s(:delimited, delimiter: ',')%>円</b></td>
-        </tr>
-        <tr>
-          <th><b>ご請求金額</b></th>
-          <td><b><%= @order.total_payment.to_s(:delimited, delimiter: ',')%>円</b></td>
-        </tr>
-      </table>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <table class="table table-hover thead-light">
+          <thead class= "thead-light">
+            <tr>
+              <th>商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>製作ステータス</th>
+            </tr>
+          </thead>
+          <% @order_details.each do |order_detail| %>
+          <tbody>
+            <tr>
+              <td><%= order_detail.item.name %></td>
+              <td><%= order_detail.price.to_s(:delimited, delimiter: ',') %></td>
+              <td><%= order_detail.amount %></td>
+              <td><%= ((order_detail.price).floor*order_detail.amount).to_s(:delimited, delimiter: ',') %></td>
+              <td>
+                <%= form_with model:[@order,order_detail],url:admin_order_order_detail_path(@order,order_detail),remote: :true do |f| %>
+                  <%= f.select :product_status, OrderDetail.product_statuses.keys.map {|stat| [I18n.t("enums.order_detail.product_status.#{stat}"), stat]} %>
+                  <%= f.submit "更新" ,class: "btn btn-outline-dark font-weight-bold form-button-common" %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+      </div>
+      <div class="col-3">
+        <table class="table table-bordered table-hover">
+          <thead class= "thead-light">
+            <tr>
+              <th><b>商品合計</b></th>
+              <td><b><%= (@order.total_payment - @order.shipping_fee).to_s(:delimited, delimiter: ',')%>円</b></td>
+            </tr>
+            <tr>
+              <th><b>送料</b></th>
+              <td><b><%= @order.shipping_fee.to_s(:delimited, delimiter: ',')%>円</b></td>
+            </tr>
+            <tr>
+              <th><b>ご請求金額</b></th>
+              <td><b><%= @order.total_payment.to_s(:delimited, delimiter: ',')%>円</b></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
     </div>
   </div>
 </div>
