@@ -1,2 +1,27 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class = "container">
+  <div class = "row" style = "margin-top: 50px;">
+    <div class = "col-md-3">
+      <%= render 'genre', genres: @genres %>
+    </div>
+    <div class = 'col-md-3'>
+      <%= image_tag @item.get_item_image,size:"300x300" %>
+    </div>
+    <div class = "col-md-5 offset-md-1" >
+      <h3 class = "item_name"><u><%= @item.name %></u></h3>
+      <p class = "item_info"><%= @item.summary %></p>
+      <p class = "item_info">¥ <%= @item.with_tax_price.to_s(:delimited) %>
+        <span class = "tax_included">（税込）</span>
+      </p>
+      <%= form_with model: @cart_item do |f| %>
+      <div class="amount_select">
+        <%= f.select :amount, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10]], {:prompt => "個数選択"} %>
+        <div class="cart_in_button">
+          <%= f.submit "カートに入れる", class:"btn btn-outline-dark font-weight-bold form-button-common" %>
+        </div>
+      </div>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

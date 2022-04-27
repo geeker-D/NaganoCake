@@ -1,1 +1,43 @@
-<h1>public_homes#top</h1>
+<div class = "container">
+  <div class = "row" style = "margin-top: 50px;">
+    <div class = "col-3">
+      <%= render 'public/items/genre', genres: @genres %>
+    </div>
+    <div class = 'col-9'>
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class= "image_top">
+            <div class="title_top">
+              <h3>
+                <b class="top_message">ようこそ、"NaganoCake"へ！</b>
+              </h3>
+              <h6 class="top-submessage">
+                このサイトは、ケーキ販売のECサイトになります。<br>
+                会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row top_item_index">
+        <div class="container">
+          <div class="row">
+            <div class="col-8 ">
+              <h4>【新着商品】</h4>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <%= render 'index', items: @items %>
+          </div>
+        </div>
+        <div class="container">
+          <div class="text-right top_bottom_link">
+            <%= link_to "全ての商品を見る＞　", items_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

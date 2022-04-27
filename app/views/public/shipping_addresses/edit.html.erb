@@ -1,2 +1,15 @@
-<h1>Public::ShippingAddresses#edit</h1>
-<p>Find me in app/views/public/shipping_addresses/edit.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center" style = "margin-top: 50px;">
+    <div class="col-md-8">
+      <div class="text-error">
+        <%= render 'layouts/public/errors', obj: @shipping_address %>
+      </div>
+      <div>
+        <h4 class="font-weight-bold ml-5"><u>配送先編集</u></h4>
+      </div>
+      <div>
+        <%= render 'form_edit', shipping_address: @shipping_address %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,36 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container">
+  <div class="row" style = "margin-top: 50px; margin-left: 100px;">
+    <div class="col-md-1" style="float:left;"></div>
+      <h4 class="font-weight-bold"><u>マイページ</u></h4>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-6 form-inline">
+      <h5>登録情報</h5>
+      <div class="ml-4">
+        <%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-outline-dark font-weight-bold form-button-common" %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-3">
+      <%= render 'my_info' %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-4 form-inline">
+      <h5>配送先</h5>
+      <div class="ml-4">
+        <%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-outline-dark font-weight-bold form-button-common" %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-4 form-inline">
+      <h5>注文履歴</h5>
+      <div class="ml-4">
+        <%= link_to "一覧を見る", orders_path, class: "btn btn-outline-dark font-weight-bold form-button-common" %>
+      </div>
+    </div>
+  </div>
+</div>

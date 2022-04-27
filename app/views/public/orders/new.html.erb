@@ -1,2 +1,95 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center' style = "margin-top: 50px;">
+    <div class="col-md-10">
+      <div class='row'>
+        <h4 class="content_title_kk"><b>注文情報入力</b></h4>
+      </div>
+      <%= form_with model:@order,url: order_preconfirm_orders_path, local:true do |f| %>
+      <div class='container'>
+        <div class='row'>
+          <h6 class=order_preconfirm_smalltitle><b>支払い方法</b></h6>
+          <div class='container input_field_kk'>
+            <div class="field">
+              <%= f.radio_button :payment_type, Order.payment_types.key(0),{checked:true} %>
+              <%= f.label :payment_type, Order.payment_types_i18n[:credit_card] %>
+            </div>
+            <div class="field">
+              <%= f.radio_button :payment_type, Order.payment_types.key(1) %>
+              <%= f.label :payment_type, Order.payment_types_i18n[:transfer]%>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class='container'>
+          <div class='row'>
+            <h6 class=order_preconfirm_smalltitle><b>お届け先</b></h6>
+            <div class='container'>
+              <div class="field input_field_kk">
+                <%= f.radio_button :address_radio_type, 1,{checked:true} %>
+                <%= f.label "ご自身の住所" %>
+                <div class='container'>
+                  <%= "〒"+current_customer.post_code+" "+current_customer.address %><br>
+                  <%= current_customer.last_name + current_customer.first_name %>
+                </div>
+              </div>
+              <div class="field">
+                <%= f.radio_button :address_radio_type, 2 %>
+                <%= f.label "登録済住所から選択" %>
+                <div class='container input_field_kk'>
+                  <div class="field">
+                    <%= f.select :shipping_address_id,
+                      options_for_select(@shipping_info),
+                      {class: "form-group form-control mr-2"}
+                    %>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <%= f.radio_button :address_radio_type, 3 %>
+                <%= f.label "新しいお届け先" %>
+                <div class='container'>
+                  <div class="field">
+                    <div class="row input_field_kk">
+                      <div class="col-3">
+                        <%= f.label "郵便番号(ハイフンなし)" %>
+                      </div>
+                      <div class="col-3">
+                        <%= f.text_field :input_post_code, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="row input_field_kk">
+                      <div class="col-3">
+                        <%= f.label "住所" %>
+                      </div>
+                      <div class="col-8">
+                        <%= f.text_field :input_address, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="row input_field_kk">
+                      <div class="col-3">
+                        <%= f.label "宛名" %>
+                      </div>
+                      <div class="col-3">
+                        <%= f.text_field :input_to_name, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='container'>
+          <div class="actions col-12">
+            <b><%= f.submit "確認画面へ進む",class: 'btn btn-outline-dark d-grid gap-2 col-3 font-weight-bold form-button-common btn-block' %></b>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

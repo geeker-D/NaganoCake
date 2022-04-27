@@ -1,2 +1,15 @@
-<h1>Admin::Searches#search_item</h1>
-<p>Find me in app/views/admin/searches/search_item.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center' style = "margin-top: 50px;">
+    <!--<div class = "col-md-2">-->
+    <!--  %= render '/admin/items/genre', genres: @genres %>-->
+    <!--</div>-->
+    <div class = 'col-md-9 offset-1'>
+      <div class='row item_index_row'>
+        <h4 class="content_title_kk"><b>商品検索結果</b></h4><span style = "font-size:20px;">（<%= @search_result.count %>件/  検索条件：<%= @item_name %>）</span>
+      </div>
+        <div class="row">
+          <%= render 'item_index', items: @search_result %>
+        </div>
+    </div>
+  </div>
+</div>

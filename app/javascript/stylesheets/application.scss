@@ -1,8 +1,39 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "skippr.css";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+// ↓國原記載##############################################
+#notice {
+  text-align: center;
+  background-color: #e0ffff;
+  font-weight: bold;
+}
+
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: 150px;
+  height: 120px;
+}
 
 .icon{
   margin: 5px;
+}
+
+.login_customer_disp_name{
+  margin: 0px 20px 0px 20px;
+  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+  font-size: 14px;
+}
+
+.navigation_area{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.btn_link{
+  margin: 0px 0px 10px 0px;
 }
 
 .heaedr-link {
@@ -18,6 +49,10 @@ background-color: rgba(220, 220, 220, 1) ;
 p.footertopline{
   border-top-style: solid;
   border-width: 1px;
+}
+
+.footer_area{
+  margin-bottom: 20px;
 }
 
 .searchbar{
@@ -62,4 +97,569 @@ p.footertopline{
   border-radius: 50%;
   color:white;
   text-decoration:none;
+}
+
+.img_wrap_kuni{
+  transition-duration: 0.5s;
+}
+.img_wrap_kuni img{
+  width: 100%;
+  cursor: pointer;
+}
+.img_wrap_kuni:hover{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+}
+
+.news_cart_item {
+  width: 90px;
+  border-radius: 5px;
+  position: sticky;
+}
+
+.news_count {
+  position: absolute;
+  top: 0px;
+  left: calc(100% - 15px);
+  color: #FFF;
+  font-weight: bold;
+  font-size: small;
+  line-height: 20px;
+  text-align: center;
+  background: #ff7f50;
+  border-radius: 10px;
+  min-width: 20px;
+  padding: 0 3px;
+  box-sizing: border-box;
+}
+
+.cards {
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+.cards:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
+.card_text {
+  margin: auto;
+  pointer-events: none;
+  text-decoration:none;
+  color:#000000;
+  width: 120px;
+}
+
+.cards::before{
+    content: "NEW !!";
+    column-rule: #ffffff;
+    background-color: #f0e68c;
+    padding: 5px 25px;
+}
+
+.search_cards {
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+.search_cards:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
+.top_bottom_link {
+ margin-top: 20px;
+}
+
+.Header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 140px;
+padding-bottom: 140px;
+z-index:999;
+}
+
+body {
+  padding-top: 132px; /* ヘッダーの後ろに要素が隠れないようにするため */
+}
+
+
+.Contents {
+font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+// overflow: auto; /* コンテンツの表示を自動に設定（スクロール） */
+}
+
+.top_item_index {
+ margin-top: 40px;
+}
+
+.image_top {
+ background-image: url(/assets/CheeseCake.jpg);
+ background-size: cover;
+ padding-top: 90px;
+ padding-bottom: 60px;
+ padding-left: auto;
+ padding-right: auto;
+ margin: 10px;
+ text-align: center;
+ width:100%;
+ height:250px;
+ color: #ffffff;
+ position: relative;
+ z-index: 0;
+}
+
+.image_top::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  background: inherit;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.title_top {
+  text-shadow: 0 0 10px #333;
+}
+
+.top_message {
+  text-decoration: underline;
+  text-shadow: 1px 2px 3px #808080;
+}
+
+.top_submessage {
+  text-shadow: 1px 2px 3px #808080;
+}
+
+ #container_about {
+  height: 400px;
+  margin-top: 20px;
+}
+
+.image1 {
+  background-image: url(/assets/CheeseCake.jpg);
+}
+.image2 {
+  background-image: url(/assets/cookie.jpg);
+}
+.image3 {
+  background-image: url(/assets/donutIMGL5823_TP_V4.jpg);
+}
+.image4 {
+  background-image: url(/assets/ShortCake.jpg);
+}
+.image5 {
+  background-image: url(/assets/taruto.jpg);
+}
+
+.content_title_kk {
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+br.content_title_kk{
+  display: none;
+}
+
+.input_field_kk {
+  margin-bottom: 10px;
+}
+
+.cart_image_kk {
+  margin-right: 10px;
+}
+
+.table_price_area {
+  margin-top: 30px;
+}
+
+.br_font_kk{
+  font-size: 10px;
+}
+
+.br_font_kk{
+  font-size: 5px;
+}
+
+.item_index_row {
+  margin-bottom: 30px;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+.form-button-common {
+  border: 2px solid #555;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+.btn-style{
+  /*アニメーションの起点とするためrelativeを指定*/
+  position: relative;
+  overflow: hidden;
+    /*ボタンの形状*/
+  text-decoration: none;
+  display: inline-block;
+    height: 45px;
+    border: 2px solid #555;/* ボーダーの色と太さ */
+    padding: 10px 30px;
+    text-align: center;
+    outline: none;
+    /*アニメーションの指定*/
+    transition: ease .2s;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+/*ボタン内spanの形状*/
+.btn-style span {
+  position: relative;
+  z-index: 3;/*z-indexの数値をあげて文字を背景よりも手前に表示*/
+  color:#333;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+.btn-style:hover span{
+  color:#fff;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+/*== 背景が流れる（上から下） */
+.bgtop:before {
+  content: '';
+    /*絶対配置で位置を指定*/
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: 2;
+    /*色や形状*/
+  background:  #333;/*背景色*/
+  width: 100%;
+  height: 0;
+    /*アニメーション*/
+  transition:.3s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+}
+
+/*#########大元のボタンスタイルは変更しないでください##### */
+/*hoverした際の形状*/
+.bgtop:hover:before{
+   height: 100%;
+   background-color: #333;
+}
+
+
+.btnchangeradius1{
+    /*ボタンの形状*/
+  display:inline-block;
+    background: #f5deb3;
+    color: #696969;
+    padding: 10px 20px;
+
+  border: 1px solid #555;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition:.3s ease-out;
+}
+
+/*hoverした際の角丸のアニメーション*/
+.btnchangeradius1:hover{
+  background:#fffacd;
+  border-radius:20px;
+}
+
+.btnchangeradius2{
+    /*ボタンの形状*/
+  display:inline-block;
+    background: #fffacd;
+    color: #696969;
+    padding: 10px 20px;
+
+  // border: 1px solid #555;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition:.3s ease-out;
+}
+
+/*hoverした際の角丸のアニメーション*/
+.btnchangeradius2:hover{
+  background:#f5deb3;
+  border-radius:20px;
+}
+
+.bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 50vh;
+  color: #fff;
+}
+
+.bg.-visible:before {
+  transform: translate(0, 0);
+}
+
+.bg:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #faebd7;
+  // background-color: #a33e46;
+  transform: translate(0, 100%);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) .6s;
+  content: '';
+}
+
+/* テキストのスタイル */
+.title {
+  display: block;
+  color: #000000;
+  // color: #fff;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+}
+
+.title span {
+  display: block;
+  opacity: 0;
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 1s, opacity linear 0.7s;
+}
+
+.title span:first-child {
+  transform: translate(0, 40px);
+  font-size: 20px;
+  transition-delay: 0.25s;
+
+}
+
+.title span:last-child {
+  margin-top: 18px;
+  transform: translate(0, 30px);
+  font-size: 48px;
+  transition-delay: 0.45s;
+}
+
+.bg.-visible .title span {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.order_preconfirm_smalltitle {
+ text-decoration: underline
+}
+
+.login_button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+// ジャンル検索サイドメニュー
+ul.sample {
+  list-style: none;
+}
+
+a.sample_a {
+  text-decoration: none;
+}
+
+.accordion-menu {
+  width: 100%;
+  max-width: 350px;
+  margin: 0px auto 0px;
+  background: #fff;
+  border-radius: 4px;
+}
+.accordion-menu li.open .dropdownlink {
+  color: #CDDC39;
+  .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+}
+.accordion-menu li:last-child .dropdownlink {
+  border-bottom: 0;
+}
+.dropdownlink {
+  cursor: pointer;
+  display: block;
+  padding: 0px 15px 15px 15px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  color: #212121;
+  position: relative;
+  transition: all 0.4s ease-out;
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+  }
+}
+
+.submenuItems {
+  display: none;
+  background: #C8E6C9;
+  li {
+    border-bottom: 1px solid #B6B6B6;
+  }
+}
+
+.submenuItems a {
+  display: block;
+  color: #727272;
+  padding: 12px 12px 12px 45px;
+  transition: all 0.4s ease-out;
+  &:hover {
+    background-color: #CDDC39;
+    color: #fff;
+  }
+}
+// ↑ジャンル検索サイドメニュー
+// .item_price {
+//   margin-top: 10px;
+// }
+
+
+// ↑國原記載##############################################
+
+
+// ↓松本記載##############################################
+
+.last_name_field {
+  margin-right: 100px;
+}
+
+.last_name_kana_field {
+  margin-right: 100px;
+}
+
+.btn-outline-success {
+  margin-left: 100px;
+}
+
+.customer-index {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.admin-customer-show {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.admin-customer_edit {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.genre_index {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.genre_edit {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.item_new {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.item_edit {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.order_index {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.admin_customer_index_order {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.admin_order_show {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.admin_item_new {
+  margin-left: 180px;
+}
+
+.admin_item_edit {
+  margin-left: 180px;
+}
+
+// ↓安部記載##########################
+.tax_included {
+  font-size: 15px;
+}
+
+.item_name_column {
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.item_name {
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-align: left;
+}
+
+
+.item_column {
+  margin-bottom: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.item_info {
+  margin-bottom: 50px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.amount_select {
+  display: flex;
+  justify-content: left;
+}
+
+.cart_in_button {
+  margin-left: 20px;
+}
+
+.plus_button {
+  color: black;
+}
+
+.label {
+  font-weight: bold;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.paginate_order {
+  margin-left: 100px;
 }

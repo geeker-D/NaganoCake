@@ -1,0 +1,12 @@
+<ul class="accordion-menu sample">
+  <li>
+    <div class="dropdownlink"><i class="fas fa-folder-open" aria-hidden="true"></i><b>ジャンル検索</b>
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <ul class="submenuItems sample">
+      <% genres.each do |genre| %>
+      <li><b><%= link_to genre.name, search_genre_searches_path(id: genre.id), class: "sample_a" %></b></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>

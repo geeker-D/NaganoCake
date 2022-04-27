@@ -1,0 +1,15 @@
+<div>
+  <% items.each do |item| %>
+  <div class="card cards" style="float:left; margin-right:20px; text-align: center;">
+    <div class="card-body" style="background-color:#faebd7;">
+      <%= link_to item_path(item.id) do %>
+        <%= image_tag item.get_item_image, size: '150x120', class: "card-img-top" %>
+        <div class="card_text">
+          <b><%= item.name %></b><br>
+          ￥<%= item.with_tax_price %>（税込）
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

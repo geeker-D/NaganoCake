@@ -1,2 +1,17 @@
-<h1>Public::Orders#index</h1>
-<p>Find me in app/views/public/orders/index.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center" style = "margin-top: 50px;">
+    <div class="col-md-12">
+      <div style = "margin-left: 100px;">
+        <h4 class="font-weight-bold"><u>注文履歴一覧</u></h4>
+      </div>
+      <div class="row justify-content-center mt-3">
+        <div>
+          <%= render 'index', orders: @orders %>
+        </div>
+      </div>
+      <div class="paginate_order">
+        <%= paginate @orders %>
+      </div>
+    </div>
+  </div>
+</div>

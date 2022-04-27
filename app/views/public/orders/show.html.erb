@@ -1,2 +1,10 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center" style = "margin-top: 50px;">
+    <div class="col-md-12">
+      <div class="mb-3">
+        <h4 class="font-weight-bold"><u>注文詳細</u></h4>
+      </div>
+      <%= render 'show_index', order: @order %>
+    </div>
+  </div>
+</div>

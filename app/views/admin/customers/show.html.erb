@@ -1,2 +1,59 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <h4 class="admin-customer-show">
+        <%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細
+      </h4>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <td><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <th>氏名</th>
+            <td><%= @customer.last_name %> <%= @customer.first_name %></td>
+          </tr>
+          <tr>
+            <th>フリガナ</th>
+            <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <td><%= @customer.post_code %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><%= @customer.phone_number %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @customer.email %></td>
+          </tr>
+          <tr>
+            <th>会員ステータス</th>
+            <td><%= @customer.is_deleted %></td>
+          </tr>
+        </thead>
+      </table>
+      <div class="btn-toolbar">
+        <div class="btn-group">
+          <div class="row mr-5 ml-2">
+            <%= link_to edit_admin_customer_path(@customer) do %>
+            <button type="button" class="btn btn-outline-dark font-weight-bold form-button-common">編集する</button>
+            <% end %>
+          </div>
+          <div class="row">
+            <%= link_to index_order_admin_customer_path(@customer.id) do %>
+            <button type="button" class="btn btn-outline-dark font-weight-bold form-button-common">注文履歴一覧を見る</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

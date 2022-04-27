@@ -1,2 +1,18 @@
-<h1>Public::ShippingAddresses#index</h1>
-<p>Find me in app/views/public/shipping_addresses/index.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center" style = "margin-top: 50px;">
+    <div class="col-md-10">
+      <div class="text-error">
+        <%= render 'layouts/public/errors', obj: @shipping_address %>
+      </div>
+      <div>
+        <h4 class="font-weight-bold ml-5"><u>配送先登録/一覧</u></h4>
+      </div>
+      <div>
+        <%= render 'form_new', shipping_address: @shipping_address %>
+      </div>
+      <div class="row-md-10">
+        <%= render 'index', shipping_addresses: @shipping_addresses %>
+      </div>
+    </div>
+  </div>
+</div>
